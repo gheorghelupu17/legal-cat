@@ -27,6 +27,9 @@ public class MainMenu extends AppCompatActivity {
         actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close);
         navigationView = findViewById(R.id.navigation_view_list);
 
+
+
+
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
@@ -39,17 +42,19 @@ public class MainMenu extends AppCompatActivity {
                     case R.id.nav_account:
                         Intent i = new Intent(MainMenu.this,ProfileMenu.class);
                         startActivity(i);
-
+                        finish();
                         break;
 
                     case R.id.settings:
                         Intent intent = new Intent(MainMenu.this,Setari.class);
                         startActivity(intent);
-
+                        finish();
                         break;
 
                     case R.id.logout:
-                        //apasa pe "Exit"
+                        Intent logoutIntent = new Intent(MainMenu.this,Login.class);
+                        startActivity(logoutIntent);
+                        finish();
                         break;
                 }
                 return false;
@@ -57,11 +62,15 @@ public class MainMenu extends AppCompatActivity {
         });
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (actionBarDrawerToggle.onOptionsItemSelected(item)){
+            TextView navigationName = findViewById(R.id.name_navigation_display);
+            navigationName.setText(UserDetails.getName());
             return true;
         }
         return super.onOptionsItemSelected(item);

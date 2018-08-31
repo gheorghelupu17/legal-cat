@@ -10,11 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainMenu">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".PlayMode" />
         <activity
@@ -25,9 +21,19 @@
         <activity android:name=".Lideri" />
         <activity android:name=".Specialist" />
         <activity android:name=".Dictionar" />
-        <activity android:name=".ProfileMenu"
+
+        <activity
+            android:name=".ProfileMenu"
             android:theme="@style/AppTheme.NoActionBar">
 
+        </activity>
+        <activity android:name=".Login"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
