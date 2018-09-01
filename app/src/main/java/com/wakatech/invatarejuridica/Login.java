@@ -45,4 +45,8 @@ public class Login extends AppCompatActivity {
         Intent intent = new Intent(this,MainMenu.class);
         startActivity(intent);
         finish();
-    }}
+    }
+
+
+
+}

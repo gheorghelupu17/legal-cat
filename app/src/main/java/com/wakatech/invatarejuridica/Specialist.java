@@ -10,6 +10,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
+
 public class Specialist extends AppCompatActivity {
 
     private Spinner spinner;
@@ -40,10 +46,29 @@ public class Specialist extends AppCompatActivity {
             public void onClick(View v) {
                 String str = String.valueOf(intrebare.getText());
                 if (str == null || str.equals("")) {
+                    //Validam ca intrebarea sa nu fie goala
                     Toast.makeText(Specialist.this,"Scrie o intrebare",Toast.LENGTH_SHORT).show();
                 } else {
+                    Retrofit.Builder builder = new Retrofit.Builder().addConverterFactory(ScalarsConverterFactory.create()).baseUrl("http://10.0.2.2:5000");
+                    Retrofit retrofit = builder.build();
+
+                    SpecialistClient specialistClient = retrofit.create(SpecialistClient.class);
+                    Call<String> call = specialistClient.askQuestion(str);
+
+                    call.enqueue(new Callback<String>() {
+                        @Override
+                        public void onResponse(Call<String> call, Response<String> response) {
+                            Toast.makeText(Specialist.this, response.body(), Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onFailure(Call<String> call, Throwable t) {
+                            Toast.makeText(Specialist.this,"Intrebarea nu s-a putut trimite :(",Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+
                     intrebare.setText("");
-                    Toast.makeText(Specialist.this,"Intrebarea a fost trimisa",Toast.LENGTH_SHORT).show();
                 }
             }
         });
