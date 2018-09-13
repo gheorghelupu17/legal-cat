@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">InvatareJuridica</string>
+    <string name="app_name">Legal Cat</string>
     <string name="open">open</string>
     <string name="close">close</string>
     <string name="title_activity_stiatica">stiatica</string>
@@ -11,4 +11,79 @@
         <item>Categoria 4</item>
         <item>Categoria 5</item>
     </string-array>
+
+    <string-array name="judete">
+        <item>Alba</item>
+        <item>Arad</item>
+        <item>Arges</item>
+        <item>Bacau</item>
+        <item>Bihor</item>
+        <item>Bistrita Nasaud</item>
+        <item>Botosani</item>
+        <item>Braila</item>
+        <item>Brasov</item>
+        <item>Bucuresti</item>
+        <item>Buzau</item>
+        <item>Calarasi</item>
+        <item>Caras Severin</item>
+        <item>Cluj</item>
+        <item>Constanta</item>
+        <item>Covasna</item>
+        <item>Dambovita</item>
+        <item>Dolj</item>
+        <item>Galati</item>
+        <item>Giurgiu</item>
+        <item>Gorj</item>
+        <item>Harghita</item>
+        <item>Hunedoara</item>
+        <item>Ialomita</item>
+        <item>Iasi</item>
+        <item>Ilfov</item>
+        <item>Maramures</item>
+        <item>Mehedinti</item>
+        <item>Mures</item>
+        <item>Neamt</item>
+        <item>Olt</item>
+        <item>Prahova</item>
+        <item>Salaj</item>
+        <item>Satu Mare</item>
+        <item>Sibiu</item>
+        <item>Suceava</item>
+        <item>Teleorman</item>
+        <item>Timis</item>
+        <item>Tulcea</item>
+        <item>Valcea</item>
+        <item>Vaslui</item>
+        <item>Vrancea</item>
+    </string-array>
+    
+    <string-array name="scoli">
+        <item>Scoala A</item>
+        <item>Scoala B</item>
+        <item>Scoala C</item>
+        <item>Scoala D</item>
+        <item>Scoala E</item>
+        <item>Scoala 1</item>
+        <item>Scoala 2</item>
+        <item>Scoala 3</item>
+        <item>Scoala 4</item>
+        <item>Scoala 5</item>
+        <item>Scoala 6</item>
+    </string-array>
+
+    <string-array name="clase">
+        <item>I</item>
+        <item>II</item>
+        <item>III</item>
+        <item>IV</item>
+        <item>V</item>
+        <item>VI</item>
+        <item>VII</item>
+        <item>VIII</item>
+        <item>IX</item>
+        <item>X</item>
+        <item>XI</item>
+        <item>XII</item>
+    </string-array>
+    
 </resources>

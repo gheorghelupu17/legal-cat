@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wakatech.invatarejuridica">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,9 +11,7 @@
         android:roundIcon="@mipmap/baseline_face_black_18dp"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainMenu">
-
-        </activity>
+        <activity android:name=".MainMenu"></activity>
         <activity android:name=".PlayMode" />
         <activity
             android:name=".Stiatica"
@@ -23,13 +21,10 @@
         <activity android:name=".Lideri" />
         <activity android:name=".Specialist" />
         <activity android:name=".Dictionar" />
-
+        <activity android:name=".ProfileMenu"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".ProfileMenu"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity android:name=".Login"
+            android:name=".Login"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,6 +32,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SignUp"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

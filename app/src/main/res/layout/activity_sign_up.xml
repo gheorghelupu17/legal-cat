@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_login"
+    tools:context=".SignUp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Inregistrare"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:textColor="#FFF"
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:layout_marginTop="50sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Judet"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:textColor="#FFF"
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:layout_marginTop="15sp"/>
+
+    <Spinner
+        android:id="@+id/judet_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10sp"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="10dp"
+        >
+    </Spinner>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scoala"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:textColor="#FFF"
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:layout_marginTop="15sp"/>
+
+    <Spinner
+        android:id="@+id/scoala_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10sp"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="10dp">
+    </Spinner>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clasa"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:textColor="#FFF"
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:layout_marginTop="15sp"/>
+
+    <Spinner
+        android:id="@+id/clasa_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10sp"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="10dp">
+    </Spinner>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Varsta"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:textColor="#FFF"
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:layout_marginTop="15sp"/>
+
+    <EditText
+        android:id="@+id/varsta_ed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:textAlignment="center"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="40dp"
+        android:textAllCaps="false"
+        android:background="@drawable/buttonstyle"
+        android:text="Inregistrare"
+        android:textColor="#FFF"
+        android:onClick="openApp"
+        />
+
+</LinearLayout>
