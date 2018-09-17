@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.wakatech.invatarejuridica.helper.WordDictionary;
+
 public class BottomSheetDictionar extends BottomSheetDialogFragment {
 
     private View modalView;
@@ -25,8 +27,4 @@ public class BottomSheetDictionar extends BottomSheetDialogFragment {
         description.setText(WordDictionary.descrieri.get(word));
         return v;
     }
-
-
-
-
 }

@@ -1,4 +1,4 @@
-package com.wakatech.invatarejuridica;
+package com.wakatech.invatarejuridica.helper;
 
 public class UserDetails {
 

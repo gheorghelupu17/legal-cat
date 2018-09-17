@@ -56,15 +56,15 @@
         <item>Vaslui</item>
         <item>Vrancea</item>
     </string-array>
-    
+
     <string-array name="scoli">
         <item>Scoala A</item>
-        <item>Scoala B</item>
-        <item>Scoala C</item>
-        <item>Scoala D</item>
-        <item>Scoala E</item>
-        <item>Scoala 1</item>
-        <item>Scoala 2</item>
+        <item>Negruzzi</item>
+        <item>National</item>
+        <item>Racovita</item>
+        <item>Moisil</item>
+        <item>Sportiv</item>
+        <item>Ibraileanu</item>
         <item>Scoala 3</item>
         <item>Scoala 4</item>
         <item>Scoala 5</item>
@@ -85,5 +85,5 @@
         <item>XI</item>
         <item>XII</item>
     </string-array>
-    
+
 </resources>

@@ -1,4 +1,4 @@
-package com.wakatech.invatarejuridica;
+package com.wakatech.invatarejuridica.helper;
 
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;

@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/baseline_face_black_18dp"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainMenu"></activity>
+        <activity android:name=".MainMenu" />
         <activity android:name=".PlayMode" />
         <activity
             android:name=".Stiatica"
@@ -21,8 +21,9 @@
         <activity android:name=".Lideri" />
         <activity android:name=".Specialist" />
         <activity android:name=".Dictionar" />
-        <activity android:name=".ProfileMenu"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ProfileMenu"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Login"
             android:theme="@style/AppTheme.NoActionBar">
@@ -32,8 +33,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignUp"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".SignUp"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".PlayLevel" />
+        <activity android:name=".LearnLevel"></activity>
     </application>
 
 </manifest>

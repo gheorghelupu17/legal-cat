@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.wakatech.invatarejuridica.helper.UserDetails;
+
 public class Login extends AppCompatActivity {
 
     private EditText usernameText;

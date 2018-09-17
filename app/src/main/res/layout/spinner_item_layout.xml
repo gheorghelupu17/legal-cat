@@ -5,6 +5,11 @@
     android:layout_gravity="center"
     android:gravity="center">
 
-
+    <TextView
+        android:id="@+id/spinner_custom_text_view_item"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:textAlignment="center"/>
 
 </LinearLayout>
