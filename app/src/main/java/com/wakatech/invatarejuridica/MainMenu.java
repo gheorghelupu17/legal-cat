@@ -1,6 +1,7 @@
 package com.wakatech.invatarejuridica;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -29,8 +30,6 @@ public class MainMenu extends AppCompatActivity {
         navigationView = findViewById(R.id.navigation_view_list);
 
 
-
-
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
@@ -43,16 +42,20 @@ public class MainMenu extends AppCompatActivity {
                     case R.id.nav_account:
                         Intent i = new Intent(MainMenu.this,ProfileMenu.class);
                         startActivity(i);
-                        finish();
+                        drawerLayout.closeDrawers();
                         break;
 
                     case R.id.settings:
                         Intent intent = new Intent(MainMenu.this,Setari.class);
                         startActivity(intent);
-                        finish();
+                        drawerLayout.closeDrawers();
                         break;
 
                     case R.id.logout:
+                        SharedPreferences sharedPreferences= MainMenu.this.getSharedPreferences("login_info",MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putInt("is_logged",0);
+                        editor.commit();
                         Intent logoutIntent = new Intent(MainMenu.this,Login.class);
                         startActivity(logoutIntent);
                         finish();

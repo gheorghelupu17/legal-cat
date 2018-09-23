@@ -115,7 +115,7 @@
         android:background="@drawable/buttonstyle"
         android:text="Inregistrare"
         android:textColor="#FFF"
-        android:onClick="openApp"
+        android:onClick="registUser"
         />
 
 </LinearLayout>

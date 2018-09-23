@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ public class PlayMode extends AppCompatActivity {
     private LinearLayout rootLinearLayout;
     private Context context;
     private TextView levelDescription;
+    private CardView card;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +31,11 @@ public class PlayMode extends AppCompatActivity {
         toolbar.setDisplayHomeAsUpEnabled(true);
 
         rootLinearLayout = findViewById(R.id.root_linear_layout);
+        card = findViewById(R.id.cardcard);
+        card.addView(getLayoutInflater().inflate(R.layout.cardview_design,null));
 
 
-        for (int index = 0 ; index < rootLinearLayout.getChildCount(); index++)
+        for (int index = 1 ; index < rootLinearLayout.getChildCount(); index++)
         {
             LinearLayout layout = (LinearLayout) rootLinearLayout.getChildAt(index);
             for (int index_j=0 ; index_j < layout.getChildCount(); index_j++)

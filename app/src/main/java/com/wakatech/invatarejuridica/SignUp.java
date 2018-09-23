@@ -8,6 +8,13 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class SignUp extends AppCompatActivity {
 
@@ -39,6 +46,35 @@ public class SignUp extends AppCompatActivity {
         clasaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         clasaSpinner.setAdapter(clasaAdapter);
 
+
+
+    }
+
+    public void registUser(View view) {
+        String user = scoalaAutoComplete.getText().toString();
+        String pass = judetSpinner.getSelectedItem().toString();
+        Retrofit retrofit = new Retrofit.Builder().
+                addConverterFactory(ScalarsConverterFactory.create()).
+                baseUrl("http://10.0.2.2:5000").build();
+
+        LoginClient loginClient = retrofit.create(LoginClient.class);
+        Call<String> call = loginClient.signUpUser(user,pass);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if (!response.body().equals("Error")) {
+                    openApp(null);
+                } else {
+                    Toast.makeText(SignUp.this,"User-ul deja exista",Toast.LENGTH_LONG);
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Toast.makeText(SignUp.this,"Eroare tehnica",Toast.LENGTH_LONG);
+            }
+        });
     }
 
     public void openApp(View view) {

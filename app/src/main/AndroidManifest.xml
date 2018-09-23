@@ -37,7 +37,12 @@
             android:name=".SignUp"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PlayLevel" />
-        <activity android:name=".LearnLevel"></activity>
+        <activity android:name=".LearnLevel" />
+        <activity
+            android:name=".FinishQuiz"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="Finish"
+            />
     </application>
 
 </manifest>

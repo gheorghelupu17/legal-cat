@@ -5,6 +5,7 @@ public class UserDetails {
     private static String name = "";
     private static String email = "";
     private static String school = "";
+    private static int id;
 
     public static String getEmail() {
         return email;
@@ -30,4 +31,11 @@ public class UserDetails {
         UserDetails.school = school;
     }
 
+    public static int getId() {
+        return id;
+    }
+
+    public static void setId(int id) {
+        UserDetails.id = id;
+    }
 }

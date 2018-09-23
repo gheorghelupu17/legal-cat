@@ -1,7 +1,9 @@
 package com.wakatech.invatarejuridica;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -19,6 +21,11 @@ public class Stiatica extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stiatica);
+
+        Toolbar toolbar = findViewById(R.id.custom_toolbar_stiatica);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Stiati ca?");
 
         background = findViewById(R.id.relativeLayout);
         factTextView = findViewById(R.id.factTextView);
@@ -40,5 +47,11 @@ public class Stiatica extends AppCompatActivity {
 
     public void exitStiatica(View view) {
         finish();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        super.onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

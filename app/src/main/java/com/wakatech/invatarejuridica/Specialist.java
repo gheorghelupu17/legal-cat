@@ -49,7 +49,9 @@ public class Specialist extends AppCompatActivity {
                     //Validam ca intrebarea sa nu fie goala
                     Toast.makeText(Specialist.this,"Scrie o intrebare",Toast.LENGTH_SHORT).show();
                 } else {
-                    Retrofit.Builder builder = new Retrofit.Builder().addConverterFactory(ScalarsConverterFactory.create()).baseUrl("http://10.0.2.  2:5000");
+                    Retrofit.Builder builder = new Retrofit.Builder().
+                            addConverterFactory(ScalarsConverterFactory.create()).
+                            baseUrl("http://10.0.2.2:5000");
                     Retrofit retrofit = builder.build();
 
                     SpecialistClient specialistClient = retrofit.create(SpecialistClient.class);
