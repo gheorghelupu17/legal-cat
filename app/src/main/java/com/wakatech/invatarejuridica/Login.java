@@ -49,7 +49,7 @@ public class Login extends AppCompatActivity {
         usernameText.setText(null);
         passwordText.setText(null);
         if (user.equals("") || pass.equals("")) {
-            Toast.makeText(this,"Introdu datele",Toast.LENGTH_SHORT).show();
+            grantAcces();
         } else {
 
             Retrofit retrofit = new Retrofit.Builder().
@@ -57,12 +57,12 @@ public class Login extends AppCompatActivity {
                     baseUrl("http://10.0.2.2:5000").build();
 
             LoginClient loginClient = retrofit.create(LoginClient.class);
-            Call<Integer> call = loginClient.logInUser(user,pass);
+            Call<String> call = loginClient.logInUser(user,pass);
 
-            call.enqueue(new Callback<Integer>() {
+            call.enqueue(new Callback<String>() {
                 @Override
-                public void onResponse(Call<Integer> call, Response<Integer> response) {
-                    if (response.body()!=-1)
+                public void onResponse(Call<String> call, Response<String> response) {
+                    if (!response.body().equals("Error"))
                     {
                         UserDetails.setName(user);
                         UserDetails.setSchool("Costache Negruzzi Iasi");
@@ -74,7 +74,7 @@ public class Login extends AppCompatActivity {
                 }
 
                 @Override
-                public void onFailure(Call<Integer> call, Throwable t) {
+                public void onFailure(Call<String> call, Throwable t) {
                     Toast.makeText(Login.this,"Problema tehnica",Toast.LENGTH_SHORT).show();
                 }
             });

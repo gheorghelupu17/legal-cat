@@ -9,7 +9,7 @@ public interface LoginClient {
 
     @FormUrlEncoded
     @POST("/login")
-    Call<Integer> logInUser(@Field("username") String username,
+    Call<String> logInUser(@Field("username") String username,
                            @Field("password") String password);
 
     @FormUrlEncoded
