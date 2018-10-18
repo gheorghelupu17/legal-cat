@@ -95,9 +95,6 @@ public class PlayLevel extends AppCompatActivity {
 
         });
 
-
-
-
     }
 
     private boolean checkQuestion() {
@@ -127,9 +124,33 @@ public class PlayLevel extends AppCompatActivity {
     public void switchUserSelect(View view) {
         int viewId = view.getId();
         switch (viewId) {
-            case R.id.raspuns1: userSelect1=!userSelect1; break;
-            case R.id.raspuns2: userSelect2=!userSelect2; break;
-            case R.id.raspuns3: userSelect3=!userSelect3; break;
+            case R.id.raspuns1:
+                userSelect1=!userSelect1;
+                if (userSelect1) {
+                    raspuns2.setChecked(false);
+                    raspuns3.setChecked(false);
+                    userSelect2 = false;
+                    userSelect3 = false;
+                }
+                break;
+            case R.id.raspuns2:
+                userSelect2=!userSelect2;
+                if (userSelect2) {
+                    raspuns1.setChecked(false);
+                    raspuns3.setChecked(false);
+                    userSelect1 = false;
+                    userSelect3 = false;
+                }
+                break;
+            case R.id.raspuns3:
+                userSelect3=!userSelect3;
+                if (userSelect3) {
+                    raspuns1.setChecked(false);
+                    raspuns2.setChecked(false);
+                    userSelect1 = false;
+                    userSelect2 = false;
+                }
+                break;
             default: break;
         }
     }

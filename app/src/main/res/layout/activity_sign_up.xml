@@ -8,114 +8,209 @@
     android:background="@drawable/gradient_login"
     tools:context=".SignUp">
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Inregistrare"
-        android:textSize="30sp"
-        android:gravity="center"
-        android:textColor="#FFF"
-        android:fontFamily="casual"
-        android:textStyle="bold"
-        android:layout_marginTop="50sp"/>
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Judet"
-        android:textSize="16sp"
-        android:gravity="center"
-        android:textColor="#FFF"
-        android:fontFamily="casual"
-        android:textStyle="bold"
-        android:layout_marginTop="15sp"/>
 
-    <Spinner
-        android:id="@+id/judet_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="10sp"
-        android:textAlignment="center"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:padding="10dp"
-        >
-    </Spinner>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Scoala"
-        android:textSize="16sp"
-        android:gravity="center"
-        android:textColor="#FFF"
-        android:fontFamily="casual"
-        android:textStyle="bold"
-        android:layout_marginTop="15sp"/>
 
-    <AutoCompleteTextView
-        android:id="@+id/scoala_auto_tv"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10sp"
-        android:textAlignment="center"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:padding="10dp"
-        android:completionThreshold="1">
 
-    </AutoCompleteTextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Inregistrare"
+                android:textSize="30sp"
+                android:gravity="center"
+                android:textColor="#FFF"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:layout_marginTop="50sp"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Clasa"
-        android:textSize="16sp"
-        android:gravity="center"
-        android:textColor="#FFF"
-        android:fontFamily="casual"
-        android:textStyle="bold"
-        android:layout_marginTop="15sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nume"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textColor="#FFF"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:layout_marginTop="15sp"/>
 
-    <Spinner
-        android:id="@+id/clasa_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="10sp"
-        android:textAlignment="center"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:padding="10dp">
-    </Spinner>
+            <EditText
+                android:id="@+id/nume_inregistrare_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Varsta"
-        android:textSize="16sp"
-        android:gravity="center"
-        android:textColor="#FFF"
-        android:fontFamily="casual"
-        android:textStyle="bold"
-        android:layout_marginTop="15sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="E-mail"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textColor="#FFF"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:layout_marginTop="15sp"/>
 
-    <EditText
-        android:id="@+id/varsta_ed"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:textAlignment="center"
-        />
+            <EditText
+                android:id="@+id/email_inregistrare_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_margin="40dp"
-        android:textAllCaps="false"
-        android:background="@drawable/buttonstyle"
-        android:text="Inregistrare"
-        android:textColor="#FFF"
-        android:onClick="registUser"
-        />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Parola"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textColor="#FFF"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:layout_marginTop="15sp"/>
+
+            <EditText
+                android:id="@+id/parola_inregistrare_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textAlignment="center"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Confirmare parola"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textColor="#FFF"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:layout_marginTop="15sp"/>
+
+            <EditText
+                android:id="@+id/confirmare_parola_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textAlignment="center"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Judet"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textColor="#FFF"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:layout_marginTop="15sp"/>
+
+            <Spinner
+                android:id="@+id/judet_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10sp"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="10dp"
+                >
+            </Spinner>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scoala"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textColor="#FFF"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:layout_marginTop="15sp"/>
+
+            <AutoCompleteTextView
+                android:id="@+id/scoala_auto_tv"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10sp"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="10dp"
+                android:completionThreshold="1">
+
+            </AutoCompleteTextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Clasa"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textColor="#FFF"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:layout_marginTop="15sp"/>
+
+            <Spinner
+                android:id="@+id/clasa_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10sp"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="10dp">
+            </Spinner>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Varsta"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textColor="#FFF"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:layout_marginTop="15sp"/>
+
+            <EditText
+                android:id="@+id/varsta_ed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textAlignment="center"
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="40dp"
+                android:textAllCaps="false"
+                android:background="@drawable/buttonstyle"
+                android:text="Inregistrare"
+                android:textColor="#FFF"
+                android:onClick="registUser"
+                />
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
 
 </LinearLayout>

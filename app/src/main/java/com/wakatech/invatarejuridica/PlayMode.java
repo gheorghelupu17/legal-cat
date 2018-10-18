@@ -1,7 +1,12 @@
 package com.wakatech.invatarejuridica;
 
+import android.annotation.SuppressLint;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -17,11 +23,13 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.wakatech.invatarejuridica.helper.BaseApp;
+
 public class PlayMode extends AppCompatActivity {
 
     private LinearLayout rootLinearLayout;
     private TextView levelDescription;
-
+    private ScrollView rootScrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +39,31 @@ public class PlayMode extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar_playmode);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(" ");
+        getSupportActionBar().setTitle("Select level");
 
         rootLinearLayout = findViewById(R.id.root_linear_layout);
+        rootScrollView = findViewById(R.id.scrolPlayMode);
+
+        /// ne ocupam de notificari
+
+        Intent intent = new Intent(this, PlayMode.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Builder notification = new NotificationCompat.Builder(this,BaseApp.CHANNEL_1_ID)
+                .setAutoCancel(true)
+                .setContentTitle("Joaca!")
+                .setContentText("Hai si joaca-te nivelul 5")
+                .setSmallIcon(R.mipmap.baseline_people_white_18)
+                .setContentIntent(pendingIntent);
+
+        NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        nm.notify(1,notification.build());
+
+// notificationId is a unique int for each notification that you must define
+
+
+        ///ne am ocupat de notificari
+
 
         for (int i = 0; i < rootLinearLayout.getChildCount(); i++) {
 

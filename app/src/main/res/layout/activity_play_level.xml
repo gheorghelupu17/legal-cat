@@ -1,86 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PlayLevel">
+    tools:context=".PlayLevel"
+    android:orientation="vertical"
+    android:weightSum="4.5">
 
 
     <TextView
         android:id="@+id/score_tv_play_mode"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:textAlignment="center"
         android:text="Scor:4/10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_weight="0.2"/>
 
     <TextView
         android:id="@+id/play_level_intrebare"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:padding="10dp"
-        android:text="lalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalala"
-        android:textColor="#000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/score_tv_play_mode" />
+        android:gravity="center_vertical"
+
+        android:text="ici va fi intrebarea"
+        android:textColor="#000" />
 
     <CheckBox
         android:id="@+id/raspuns1"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:buttonTint="@color/yello"
         android:text="CheckBox"
-        android:onClick="switchUserSelect"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/play_level_intrebare"
-        />
+        android:onClick="switchUserSelect" />
 
     <CheckBox
         android:id="@+id/raspuns2"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:buttonTint="@color/yello"
         android:onClick="switchUserSelect"
-        android:text="CheckBox"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/raspuns1" />
+        android:text="CheckBox" />
 
     <CheckBox
         android:id="@+id/raspuns3"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:buttonTint="@color/yello"
         android:text="CheckBox"
-        android:onClick="switchUserSelect"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/raspuns2" />
+        android:onClick="switchUserSelect" />
 
     <Button
         android:id="@+id/buttonAnswer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_weight="0.3"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+
         android:text="Answer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/raspuns3" />
-</android.support.constraint.ConstraintLayout>
+         />
+</LinearLayout>
