@@ -15,7 +15,7 @@ public class BaseApp extends Application {
         super.onCreate();
 
         createNotificatoinChannel();
-    }
+}
 
     private void createNotificatoinChannel() {
 

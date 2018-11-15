@@ -1,6 +1,5 @@
 package com.wakatech.invatarejuridica;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -10,13 +9,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.wakatech.invatarejuridica.helper.Auth;
 import com.wakatech.invatarejuridica.helper.UserDetails;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Login extends AppCompatActivity {
 
@@ -44,7 +44,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void checkInfo(View view) {
-        final String user = usernameText.getText().toString();
+        String user = usernameText.getText().toString();
         String pass = passwordText.getText().toString();
         usernameText.setText(null);
         passwordText.setText(null);
@@ -53,29 +53,28 @@ public class Login extends AppCompatActivity {
         } else {
 
             Retrofit retrofit = new Retrofit.Builder().
-                    addConverterFactory(ScalarsConverterFactory.create()).
-                    baseUrl("http://10.0.2.2:5000").build();
+                    baseUrl("http://legal-cat.wakatech.ro/").
+                    addConverterFactory(GsonConverterFactory.create())
+                    .build();
 
             LoginClient loginClient = retrofit.create(LoginClient.class);
-            Call<String> call = loginClient.logInUser(user,pass);
+            Call<Auth> call = loginClient.logInUser(new Auth(user,pass,null));
 
-            call.enqueue(new Callback<String>() {
+            call.enqueue(new Callback<Auth>() {
                 @Override
-                public void onResponse(Call<String> call, Response<String> response) {
-                    if (!response.body().equals("Error"))
-                    {
-                        UserDetails.setName(user);
-                        UserDetails.setSchool("Costache Negruzzi Iasi");
-                        UserDetails.setEmail("g_agache@yahoo.com");
-                        grantAcces();
-                    }
-                    else
-                        Toast.makeText(Login.this,"Date incorecte",Toast.LENGTH_SHORT).show();
+                public void onResponse(Call<Auth> call, Response<Auth> response) {
+                    //assert (response.toString().equals(""));
+
+                    Auth mesaj = response.body();
+                    UserDetails.setEmail(mesaj.email);
+                    UserDetails.setName(mesaj.password);
+                    Toast.makeText(Login.this,mesaj.msg, Toast.LENGTH_LONG).show();
+                    grantAcces();
                 }
 
                 @Override
-                public void onFailure(Call<String> call, Throwable t) {
-                    Toast.makeText(Login.this,"Problema tehnica",Toast.LENGTH_SHORT).show();
+                public void onFailure(Call<Auth> call, Throwable t) {
+                    Toast.makeText(Login.this,"ERR",Toast.LENGTH_LONG).show();
                 }
             });
 
