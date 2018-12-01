@@ -24,7 +24,8 @@ public class BottomSheetDictionar extends BottomSheetDialogFragment {
 
         String word = getArguments().getString("word");
         cuvant.setText(word);
-        description.setText(WordDictionary.descrieri.get(word));
+        WordDictionary dic = new WordDictionary();
+        description.setText(dic.descrieri.get(word));
         return v;
     }
 }

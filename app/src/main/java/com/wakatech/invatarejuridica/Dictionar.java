@@ -13,6 +13,8 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.wakatech.invatarejuridica.helper.WordDictionary;
+
 import java.util.ArrayList;
 
 public class Dictionar extends AppCompatActivity {
@@ -30,8 +32,11 @@ public class Dictionar extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         listOfWords = findViewById(R.id.list_of_dictionary_words);
+
+        WordDictionary dataDictionary = new WordDictionary();
         ArrayList<String> searchWords = new ArrayList<>();
-        addWords(searchWords);
+        for (String word : dataDictionary.wordList)
+            searchWords.add(word);
         adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,searchWords);
 
         listOfWords.setAdapter(adapter);
@@ -53,37 +58,6 @@ public class Dictionar extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         finish();
         return true;
-    }
-
-    private void addWords(ArrayList<String> arrayList) {
-        arrayList.add("gigi");
-        arrayList.add("liil");
-        arrayList.add("mcdonalds");
-        arrayList.add("kfc");
-        arrayList.add("andrei");
-        arrayList.add("curea");
-        arrayList.add("abac");
-        arrayList.add("gigi");
-        arrayList.add("liil");
-        arrayList.add("mcdonalds");
-        arrayList.add("kfc");
-        arrayList.add("andrei");
-        arrayList.add("curea");
-        arrayList.add("abac");
-        arrayList.add("gigi");
-        arrayList.add("liil");
-        arrayList.add("mcdonalds");
-        arrayList.add("kfc");
-        arrayList.add("andrei");
-        arrayList.add("curea");
-        arrayList.add("abac");
-        arrayList.add("gigi");
-        arrayList.add("liil");
-        arrayList.add("mcdonalds");
-        arrayList.add("kfc");
-        arrayList.add("andrei");
-        arrayList.add("curea");
-        arrayList.add("abac");
     }
 
     @Override

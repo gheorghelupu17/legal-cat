@@ -35,8 +35,6 @@ public class Login extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
 
-
-
         usernameText = findViewById(R.id.textUsername);
         passwordText = findViewById(R.id.textPassword);
         logInButton = findViewById(R.id.buttonLogIn);

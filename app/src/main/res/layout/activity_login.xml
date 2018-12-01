@@ -8,21 +8,18 @@
     android:background="@drawable/gradient_login"
     >
 
-    <TextView
+    <ImageView
         android:id="@+id/textLogIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="200dp"
-        android:text="Logo"
-        android:textAlignment="center"
-        android:textColor="@color/yello"
-        android:textSize="40sp"
+        android:layout_marginBottom="0dp"
+        android:background="@mipmap/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/textUsername" />
 
     <EditText
         android:id="@+id/textUsername"

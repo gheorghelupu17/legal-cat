@@ -10,7 +10,7 @@ public class IntrebareFactory {
     }
 
     private void loadLevel1() {
-        question[0] = new Intrebare("4 + 4 = ?","2","3","8",0,0,1);
+        question[0] = new Intrebare("O persoană fizică datorează impozit","când nu are niciun venit","când are venituri din muncă, ca şi salariat","când primeşte un cadou.",0,1,0);
         question[1] = new Intrebare("4 - 1 = ?","2","3","8",0,1,0);
         question[2] = new Intrebare("2 + 0 = ?","2","3","8",1,0,0);
         question[3] = new Intrebare("1 + 2 = ?","2","3","8",0,1,0);
