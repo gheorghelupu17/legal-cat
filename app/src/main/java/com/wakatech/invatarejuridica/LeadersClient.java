@@ -7,6 +7,6 @@ import retrofit2.http.GET;
 
 public interface LeadersClient {
 
-    @GET("/users")
+    @GET("/lideri")
     Call<List<Leader>> getAllLeaders();
 }

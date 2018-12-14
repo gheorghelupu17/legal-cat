@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.wakatech.invatarejuridica.helper.UserDetails;
 
+import java.util.List;
+
 public class MainMenu extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
@@ -105,6 +107,5 @@ public class MainMenu extends AppCompatActivity {
         Intent intent = new Intent(this,Dictionar.class);
         startActivity(intent);
     }
-
 
 }

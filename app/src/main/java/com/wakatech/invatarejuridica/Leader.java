@@ -5,12 +5,11 @@ import android.support.annotation.NonNull;
 class Leader implements Comparable<Leader>{
     private String name;
     private int score;
-    private String email;
 
-    public Leader(String name, int score, String email) {
+
+    public Leader(String name, int score) {
         this.name = name;
         this.score = score;
-        this.email = email;
     }
 
     public String getName() {
@@ -27,14 +26,6 @@ class Leader implements Comparable<Leader>{
 
     public void setScore(int score) {
         this.score = score;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     @Override

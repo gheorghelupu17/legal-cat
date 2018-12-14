@@ -54,7 +54,7 @@ public class Lideri extends AppCompatActivity {
                 List<Leader> lideriList = (ArrayList<Leader>) response.body();
 
                 for (int i=0;i<100;i++) {
-                    lideriList.add(new Leader("gigica",14,"j"));
+                    lideriList.add(new Leader("gigica",14));
                 }
 
                 LeaderboardsAdapter adapter = new LeaderboardsAdapter(Lideri.this,lideriList);
