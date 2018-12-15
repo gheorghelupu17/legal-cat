@@ -10,10 +10,20 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.wakatech.invatarejuridica.helper.IntrebareFactory;
 import com.wakatech.invatarejuridica.helper.UserDetails;
+import com.wakatech.invatarejuridica.networking.ProfilClient;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainMenu extends AppCompatActivity {
 
@@ -69,8 +79,10 @@ public class MainMenu extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //sendData();
 
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -107,5 +119,32 @@ public class MainMenu extends AppCompatActivity {
         Intent intent = new Intent(this,Dictionar.class);
         startActivity(intent);
     }
+
+    private void sendData() {
+
+        IntrebareFactory data = new IntrebareFactory(5);
+
+        Retrofit retrofit = new Retrofit.Builder().
+                addConverterFactory(GsonConverterFactory.create()).
+                baseUrl("http://10.0.2.2:5000").build();
+
+        ProfilClient playClient = retrofit.create(ProfilClient.class);
+        Call<String> call = playClient.sendData(data);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+            }
+        });
+
+
+    }
+
+
 
 }

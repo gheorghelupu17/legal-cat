@@ -24,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wakatech.invatarejuridica.helper.BaseApp;
+import com.wakatech.invatarejuridica.helper.IntrebareFactory;
 
 public class PlayMode extends AppCompatActivity {
 
@@ -44,20 +45,6 @@ public class PlayMode extends AppCompatActivity {
         rootLinearLayout = findViewById(R.id.root_linear_layout);
         rootScrollView = findViewById(R.id.scrolPlayMode);
 
-        /// ne ocupam de notificari
-
-        Intent intent = new Intent(this, PlayMode.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
-
-        NotificationCompat.Builder notification = new NotificationCompat.Builder(this,BaseApp.CHANNEL_1_ID)
-                .setAutoCancel(true)
-                .setContentTitle("Joaca!")
-                .setContentText("Hai si joaca-te nivelul 5")
-                .setSmallIcon(R.mipmap.baseline_people_white_18)
-                .setContentIntent(pendingIntent);
-
-        NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        nm.notify(1,notification.build());
 
 // notificationId is a unique int for each notification that you must define
 
@@ -90,8 +77,12 @@ public class PlayMode extends AppCompatActivity {
 
             TextView firstText = (TextView) firstCardViewLayout.getChildAt(0);
             TextView secondText = (TextView) secondCardViewLayout.getChildAt(0);
-            firstText.setText("Nivel "+(i*2+1));
-            secondText.setText("Nivel "+(i*2+2));
+
+            final int firstLevel = i*2+1;
+            final int secondLevel = i*2+2;
+
+            firstText.setText(IntrebareFactory.getLevelNameByNumber(firstLevel-1));
+            secondText.setText(IntrebareFactory.getLevelNameByNumber(secondLevel-1));
 
             LinearLayout firstPlayBoard = (LinearLayout) firstCardViewLayout.getChildAt(2);
             ImageButton playFirst = (ImageButton) firstPlayBoard.getChildAt(0);
@@ -101,20 +92,13 @@ public class PlayMode extends AppCompatActivity {
             ImageButton playSecond = (ImageButton) secondPlayBoard.getChildAt(0);
             ImageButton learnSecond = (ImageButton) secondPlayBoard.getChildAt(1);
 
-            final int firstLevel = i*2+1;
-            final int secondLevel = i*2+2;
+
 
             playFirst.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     playQuizLevel(firstLevel);
-                }
-            });
 
-            learnFirst.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    learnLevel(firstLevel);
                 }
             });
 
@@ -125,12 +109,6 @@ public class PlayMode extends AppCompatActivity {
                 }
             });
 
-            learnSecond.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    learnLevel(secondLevel);
-                }
-            });
 
         }
 
@@ -143,14 +121,14 @@ public class PlayMode extends AppCompatActivity {
         return true;
     }
 
-    public void learnLevel(int level) {
-        Intent intent = new Intent(this, LearnLevel.class);
-        intent.putExtra("level_number",level);
-        startActivity(intent);
-    }
 
     public void playQuizLevel(int level) {
-        Intent intent = new Intent(this, PlayLevel.class);
+        Intent intent;
+        int type = IntrebareFactory.getlevelType(level);
+        if (type == 0)
+            intent = new Intent(this, PlayLevel.class);
+        else
+            intent = new Intent(this, PlayLevel2.class);
         intent.putExtra("level_number",level);
         startActivity(intent);
     }

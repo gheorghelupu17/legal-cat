@@ -10,6 +10,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.wakatech.invatarejuridica.helper.IntrebareFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,7 +60,7 @@ public class FinishQuiz extends AppCompatActivity {
 
         list.set(levelCompleted,scoreLevelCompleted);
 
-        PlayClient playClient = retrofit.create(PlayClient.class);
+        /*PlayClient playClient = retrofit.create(PlayClient.class);
         Call<String> call = playClient.postScore(list);
         call.enqueue(new Callback<String>() {
             @Override
@@ -70,9 +72,9 @@ public class FinishQuiz extends AppCompatActivity {
             public void onFailure(Call<String> call, Throwable t) {
                 Toast.makeText(FinishQuiz.this,"Problema tehnica",Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
 
-        if (scoreLevelCompleted<8) {
+        if (scoreLevelCompleted<8 || levelCompleted==10) {
             nextNivel.setClickable(false);
             nextNivel.setVisibility(View.INVISIBLE);
         }
@@ -94,15 +96,26 @@ public class FinishQuiz extends AppCompatActivity {
     }
 
     public void restartLevel(View view) {
-        Intent intent = new Intent(this,LearnLevel.class);
+        Intent intent;
+        int type = IntrebareFactory.getlevelType(levelCompleted);
+        if (type == 0)
+            intent = new Intent(this, PlayLevel.class);
+        else
+            intent = new Intent(this, PlayLevel2.class);
         intent.putExtra("level_number",levelCompleted);
         startActivity(intent);
         finish();
     }
 
     public void nextLevel(View view) {
-        Intent intent = new Intent(this,LearnLevel.class);
-        intent.putExtra("level_number",levelCompleted+1);
+        int level = levelCompleted+1;
+        Intent intent;
+        int type = IntrebareFactory.getlevelType(level);
+        if (type == 0)
+            intent = new Intent(this, PlayLevel.class);
+        else
+            intent = new Intent(this, PlayLevel2.class);
+        intent.putExtra("level_number",level);
         startActivity(intent);
         finish();
     }

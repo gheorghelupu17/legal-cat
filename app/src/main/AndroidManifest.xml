@@ -13,9 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainMenu" />
-        <activity android:name=".PlayMode"
+        <activity
+            android:name=".PlayMode"
             android:launchMode="singleTop"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Stiatica"
             android:label="@string/title_activity_stiatica"
@@ -43,9 +44,9 @@
         <activity android:name=".LearnLevel" />
         <activity
             android:name=".FinishQuiz"
-            android:theme="@style/AppTheme.NoActionBar"
             android:label="Finish"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".PlayLevel2"></activity>
     </application>
 
 </manifest>

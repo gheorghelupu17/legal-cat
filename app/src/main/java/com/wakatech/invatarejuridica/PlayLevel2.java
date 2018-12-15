@@ -13,43 +13,37 @@ import android.widget.TextView;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.wakatech.invatarejuridica.helper.Intrebare;
+import com.wakatech.invatarejuridica.helper.Intrebare2;
 import com.wakatech.invatarejuridica.helper.IntrebareFactory;
 import com.wakatech.invatarejuridica.helper.RandomGenerator;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
-public class PlayLevel extends AppCompatActivity {
+public class PlayLevel2 extends AppCompatActivity {
 
     private TextView intrebare;
     private CheckBox raspuns1;
     private CheckBox raspuns2;
-    private CheckBox raspuns3;
     private boolean userSelect1 = false;
     private boolean userSelect2 = false;
-    private boolean userSelect3 = false;
     private int indexQuestion = 0;
     private Button buttonAnswer;
     private Context context;
     private TextView scoreDisplay;
-    private List<Intrebare> listaIntrebari;
+    private List<Intrebare2> listaIntrebari;
     int curentScore = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_play_level);
+        setContentView(R.layout.activity_play_level2);
 
 
-        intrebare = findViewById(R.id.play_level_intrebare);
-        raspuns1 = findViewById(R.id.raspuns1);
-        raspuns2 = findViewById(R.id.raspuns2);
-        raspuns3 = findViewById(R.id.raspuns3);
-        buttonAnswer = findViewById(R.id.buttonAnswer);
-        scoreDisplay = findViewById(R.id.score_tv_play_mode);
+        intrebare = findViewById(R.id.play_level_intrebare2);
+        raspuns1 = findViewById(R.id.raspuns12);
+        raspuns2 = findViewById(R.id.raspuns22);
+        buttonAnswer = findViewById(R.id.buttonAnswer2);
+        scoreDisplay = findViewById(R.id.score_tv_play_mode2);
         context = this;
 
 
@@ -65,8 +59,8 @@ public class PlayLevel extends AppCompatActivity {
         while (listaIntrebari.size()<10)
         {
             int randomNumber = RandomGenerator.generateInt(factory.numberOfQuestions);
-            if (!listaIntrebari.contains(factory.question[randomNumber]))
-                listaIntrebari.add(factory.question[randomNumber]);
+            if (!listaIntrebari.contains(factory.question2[randomNumber]))
+                listaIntrebari.add(factory.question2[randomNumber]);
         }
 
         setContent(indexQuestion);
@@ -97,62 +91,30 @@ public class PlayLevel extends AppCompatActivity {
 
     }
 
-    private boolean checkQuestion() {
-        Intrebare deVerificat = listaIntrebari.get(indexQuestion-1);
-        if (userSelect1 != deVerificat.isCorect1())
-            return false;
-        if (userSelect2 != deVerificat.isCorect2())
-            return false;
-        if (userSelect3 != deVerificat.isCorect3())
-            return false;
-        return true;
-    }
-
     private void animateEverything() {
         YoYo.with(Techniques.BounceInDown).duration(1000).playOn(intrebare);
         YoYo.with(Techniques.BounceInDown).duration(1000).playOn(raspuns1);
         YoYo.with(Techniques.BounceInDown).duration(1000).playOn(raspuns2);
-        YoYo.with(Techniques.BounceInDown).duration(1000).playOn(raspuns3);
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        super.onBackPressed();
-        return super.onSupportNavigateUp();
     }
 
     public void switchUserSelect(View view) {
         buttonAnswer.setEnabled(true);
         int viewId = view.getId();
         switch (viewId) {
-            case R.id.raspuns1:
+            case R.id.raspuns12:
                 if (userSelect1) buttonAnswer.setEnabled(false);
                 userSelect1=!userSelect1;
                 if (userSelect1) {
                     raspuns2.setChecked(false);
-                    raspuns3.setChecked(false);
                     userSelect2 = false;
-                    userSelect3 = false;
                 }
                 break;
-            case R.id.raspuns2:
+            case R.id.raspuns22:
                 if (userSelect2) buttonAnswer.setEnabled(false);
                 userSelect2=!userSelect2;
                 if (userSelect2) {
                     raspuns1.setChecked(false);
-                    raspuns3.setChecked(false);
                     userSelect1 = false;
-                    userSelect3 = false;
-                }
-                break;
-            case R.id.raspuns3:
-                if (userSelect3) buttonAnswer.setEnabled(false);
-                userSelect3=!userSelect3;
-                if (userSelect3) {
-                    raspuns1.setChecked(false);
-                    raspuns2.setChecked(false);
-                    userSelect1 = false;
-                    userSelect2 = false;
                 }
                 break;
             default: break;
@@ -162,15 +124,26 @@ public class PlayLevel extends AppCompatActivity {
     public void setContent(int indexQuestion) {
         userSelect1 = false;
         userSelect2 = false;
-        userSelect3 = false;
         raspuns1.setChecked(false);
         raspuns2.setChecked(false);
-        raspuns3.setChecked(false);
-        intrebare.setText(listaIntrebari.get(indexQuestion).getIntrebare());
-        raspuns1.setText(listaIntrebari.get(indexQuestion).getRaspuns1());
-        raspuns2.setText(listaIntrebari.get(indexQuestion).getRaspuns2());
-        raspuns3.setText(listaIntrebari.get(indexQuestion).getRaspuns3());
+        intrebare.setText(listaIntrebari.get(indexQuestion).intrebare);
+        raspuns1.setText(listaIntrebari.get(indexQuestion).raspuns1);
+        raspuns2.setText(listaIntrebari.get(indexQuestion).raspuns2);
         scoreDisplay.setText(curentScore+"/10");
         buttonAnswer.setEnabled(false);
+    }
+
+    private boolean checkQuestion() {
+        Intrebare2 deVerificat = listaIntrebari.get(indexQuestion-1);
+        if ( (deVerificat.corect1==1) != userSelect1)
+            return false;
+        if ( (deVerificat.corect2==1) != userSelect2)
+            return false;
+        return true;
+    }
+
+    public boolean onSupportNavigateUp() {
+        super.onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }
