@@ -16,7 +16,12 @@ public interface LoginClient {
     @POST("ci/API/submit_login")
     Call<Auth> logInUser(@Field("email") String email, @Field("password") String password);
 
-    @POST("/signup")
-    Call<UserSignUp> signUpUser(@Body UserSignUp userSignUp);
+
+    @FormUrlEncoded
+    @POST("ci/API/registretion")
+    Call<Auth> signUpUser(@Field("email") String email, @Field("password") String password,
+                          @Field("name") String nume, @Field("judet") String judet,
+                          @Field("scoala") String scoala, @Field("clasa") int clasa,
+                          @Field("varsta") int varsta);
 }
 //gheorghelupu17@gmail.com

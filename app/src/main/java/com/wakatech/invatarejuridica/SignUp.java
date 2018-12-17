@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.wakatech.invatarejuridica.helper.Auth;
 import com.wakatech.invatarejuridica.helper.UserDetails;
 import com.wakatech.invatarejuridica.helper.UserSignUp;
 
@@ -24,7 +25,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class SignUp extends AppCompatActivity {
 
     private Spinner judetSpinner;
-    private AutoCompleteTextView scoalaAutoComplete;
+    private EditText scoalaAutoComplete;
     private Spinner clasaSpinner;
     private EditText varstaEt;
     private EditText numeEt;
@@ -50,53 +51,45 @@ public class SignUp extends AppCompatActivity {
         judetAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         judetSpinner.setAdapter(judetAdapter);
 
-        String[] scoli = getResources().getStringArray(R.array.scoli);
-        ArrayAdapter<String> scoalaAdapter = new ArrayAdapter<String>(this, R.layout.spinner_item_layout, R.id.spinner_custom_text_view_item, scoli);
-        scoalaAutoComplete.setAdapter(scoalaAdapter);
 
         ArrayAdapter<CharSequence> clasaAdapter = ArrayAdapter.createFromResource(this,R.array.clase,android.R.layout.simple_spinner_item);
         clasaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         clasaSpinner.setAdapter(clasaAdapter);
 
-
-
     }
 
     //se apeleaza cand user-ul apasa pe inregistrare
-    public void registUser(View view) {
-        String pass = passwordEt.getText().toString();
-        String confirmPass = confirmPasswordEt.getText().toString();
-        String email = emailEt.getText().toString();
-        if (pass.equals(confirmPass) && isValidEmail(email))
-        {
-            Retrofit retrofit = new Retrofit.Builder().
-                    addConverterFactory(GsonConverterFactory.create()).
-                    baseUrl("http://10.0.2.2:5000").build();
+    public void registerUser(UserSignUp userData) {
 
-            LoginClient loginClient = retrofit.create(LoginClient.class);
-            UserSignUp userSignUp = getFormsData();
-            Call<UserSignUp> call = loginClient.signUpUser(userSignUp);
-            call.enqueue(new Callback<UserSignUp>() {
-                @Override
-                public void onResponse(Call<UserSignUp> call, Response<UserSignUp> response) {
-                    UserSignUp details = response.body();
-                    UserDetails.setName(details.getNume());
-                    UserDetails.setEmail(details.getEmail());
-                    UserDetails.setSchool(details.getScoala());
-                    openApp(null);
-                }
+        Retrofit retrofit = new Retrofit.Builder().
+                baseUrl("https://legal-cat.wakatech.ro/").
+                addConverterFactory(GsonConverterFactory.create())
+                .build();
 
-                @Override
-                public void onFailure(Call<UserSignUp> call, Throwable t) {
-                    Toast.makeText(SignUp.this ,"parolele nu conincid",Toast.LENGTH_LONG).show();
-                }
-            });
-        } else {
-            Toast.makeText(SignUp.this ,"parolele nu conincid",Toast.LENGTH_LONG).show();
-        }
+        LoginClient loginClient = retrofit.create(LoginClient.class);
+        Call<Auth> call = loginClient.signUpUser(
+                userData.email, userData.password,
+                userData.nume, userData.judet,
+                userData.scoala, userData.clasa,
+                userData.varsta);
 
+        call.enqueue(new Callback<Auth>() {
+            @Override
+            public void onResponse(Call<Auth> call, Response<Auth> response) {
+                //assert (response.toString().equals(""));
+                if (response.body().msg)
+                    openApp();
+                else
+                    Toast.makeText(SignUp.this,"User-ul exista deja!!",Toast.LENGTH_LONG).show();
+            }
 
+            @Override
+            public void onFailure(Call<Auth> call, Throwable t) {
+                Toast.makeText(SignUp.this,"EROR",Toast.LENGTH_LONG).show();
+            }
+        });
     }
+
 
     private UserSignUp getFormsData() {
         String nume = numeEt.getText().toString();
@@ -106,14 +99,58 @@ public class SignUp extends AppCompatActivity {
         String scoala = scoalaAutoComplete.getText().toString();
         String clasa = clasaSpinner.getSelectedItem().toString();
         int varsta = Integer.parseInt(varstaEt.getText().toString());
-
+        int nr_clasa = getNrClasa(clasa);
         System.out.println(nume+email+pass+judet+scoala);
 
-        return new UserSignUp(nume,email,pass,judet,scoala,clasa,varsta);
+        return new UserSignUp(nume,email,pass,judet,scoala,nr_clasa,varsta);
     }
 
-    public void openApp(View view) {
-        Intent intent = new Intent(this,MainMenu.class);
+    private int getNrClasa(String clasa) {
+        switch(clasa) {
+            case"I":
+                return 1;
+            case"II":
+                return 2;
+
+            case"III":
+                return 3;
+
+            case"IV":
+                return 4;
+
+            case"V":
+                return 5;
+
+            case"VI":
+                return 6;
+
+            case"VII":
+                return 7;
+
+            case"VIII":
+                return 8;
+
+            case"IX":
+                return 9;
+
+            case"X":
+                return 10;
+
+            case"XI":
+                return 11;
+
+            case"XII":
+                return 12;
+
+            default:
+                return 0;
+
+        }
+    }
+
+    public void openApp() {
+        Toast.makeText(SignUp.this,"Inregistrare facuta cu succes",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this,Login.class);
         startActivity(intent);
         finish();
     }
@@ -123,6 +160,37 @@ public class SignUp extends AppCompatActivity {
             return false;
         } else {
             return android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
+        }
+    }
+
+    public void checkData(View view)
+    {
+        boolean validData = true;
+        if (!isValidEmail(emailEt.getText().toString())) {
+            Toast.makeText(SignUp.this, "Email Invalid", Toast.LENGTH_LONG).show();
+            validData = false;
+        }
+        else if (!passwordEt.getText().toString().equals(confirmPasswordEt.getText().toString()))
+        {
+            Toast.makeText(SignUp.this, "Parolele nu coincid", Toast.LENGTH_LONG).show();
+            validData = false;
+        }
+        else if (passwordEt.getText().toString().length()<6) {
+            Toast.makeText(SignUp.this, "Parola trebuie sa contina minim 6 caractere", Toast.LENGTH_LONG).show();
+            validData = false;
+        }
+        else {
+            String nume = numeEt.getText().toString();
+            String email = emailEt.getText().toString();
+            String pass = passwordEt.getText().toString();
+            String judet = judetSpinner.getSelectedItem().toString();
+            String scoala = scoalaAutoComplete.getText().toString();
+            String clasa = clasaSpinner.getSelectedItem().toString();
+            int varsta = Integer.parseInt(varstaEt.getText().toString());
+            if (nume.equals("")||email.equals("")||judet.equals("")||scoala.equals("")||clasa.equals("")||varsta==0)
+                Toast.makeText(SignUp.this, "Completeaza toate datele", Toast.LENGTH_LONG).show();
+            else
+                registerUser(getFormsData());
         }
     }
 
