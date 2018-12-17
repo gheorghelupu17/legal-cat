@@ -12,9 +12,11 @@ import retrofit2.http.POST;
 
 public interface LoginClient {
 
-    @POST("API/submit_login")
-    Call<Auth> logInUser(@Body Auth auth);
+    @FormUrlEncoded
+    @POST("ci/API/submit_login")
+    Call<Auth> logInUser(@Field("email") String email, @Field("password") String password);
 
     @POST("/signup")
     Call<UserSignUp> signUpUser(@Body UserSignUp userSignUp);
 }
+//gheorghelupu17@gmail.com

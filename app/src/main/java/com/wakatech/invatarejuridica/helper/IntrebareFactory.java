@@ -2,9 +2,9 @@ package com.wakatech.invatarejuridica.helper;
 
 public class IntrebareFactory {
 
-    public Intrebare[] question = new Intrebare[30];
+    public Intrebare[] question = new Intrebare[100];
     public int numberOfQuestions = 10;
-    public Intrebare2[] question2 = new Intrebare2[30];
+    public Intrebare2[] question2 = new Intrebare2[100];
 
     public static String levelNames[] = {
             "General",
@@ -78,26 +78,46 @@ public class IntrebareFactory {
     //general
     private void loadLevel1()
     {
-        numberOfQuestions = 19;
-        question[0] = new Intrebare(" Ziua națională a României este: ","1 mai; ","1 iunie; ","1 decembrie. ",0,0,1);
-        question[1] = new Intrebare("Culorile drapelului României sunt: ","alb, roșu; ","albastru, galben, roșu; ","verde, alb, roșu; ",0,1,0);
-        question[2] = new Intrebare("Imnul național al României este: ","„Deșteptă-te române”; ","„Trei culori”; ","„Hora României”. ",1,0,0);
-        question[3] = new Intrebare("În România, limba oficială este: ","limba română; ","limba maghiară; ","limba engleză. ",1,0,0);
-        question[4] = new Intrebare("Capitala României este: ","Constanța; ","Timișoara; ","București. ",0,0,1);
-        question[5] = new Intrebare("Statul român este organizat pe principiul separației următoarelor puteri: ","legislativă, executivă și mass-media; ","executivă și judecătorească; ","legislativă, executivă și judecătorească. ",0,0,1);
-        question[6] = new Intrebare("Legile: ","sunt reguli obligatorii;","sunt reguli facultative; ","uneori sunt obligatorii, alteori sunt facultative. ",1,0,0);
-        question[7] = new Intrebare("Legea fundamentală a României este: ","Constituția; ","Codul penal; ","Codul civil. ",1,0,0);
-        question[8] = new Intrebare("Legile sunt adoptate de: ","Parlament; ","Guvern; ","Consiliile județene sau locale. ",1,0,0);
-        question[9] = new Intrebare(" Legile sunt aplicate de către: ","judecători; ","Președintele României; ","Parlamentul României. ",1,0,0);
-        question[10] = new Intrebare(" Statul român este reprezentat de către: ","Președintele României; ","ministrul justiției; ","primul-ministru. ",1,0,0);
-        question[11] = new Intrebare(" Președintele României este ales de către: ","Parlament; ","Comisia Europeană; ","cetățenii cu drept de vot. ",0,0,1);
-        question[12] = new Intrebare(" Cetățenii au drept de vot de la împlinirea vârstei de: ","14 ani; ","18 ani; ","20 ani. ",0,1,0);
-        question[13] = new Intrebare(" De regulă, o persoană se poate căsători la împlinirea vârstei de: ","16 ani; ","18 ani; ","20 ani; ",0,1,0);
-        question[14] = new Intrebare(" Căsătoria între rude: ","este permisă întotdeauna; ","nu este permisă niciodată; ","nu este permisă între rude până la gradul 4 inclusiv (adică verișorii), ca regulă. ",0,0,1);
-        question[15] = new Intrebare(" De regulă, obligația de a asigura creșterea, educația și instruirea copiilor o are/au: ","doar mama; ","doar tata; ","ambii părinți. ",0,0,1);
-        question[16] = new Intrebare(" Minorii: ","pot fi angajați ca salariați indiferent de vârstă; ","pot fi angajați ca salariați cel mai devreme la împlinirea vârstei de 15 ani; ","nu pot niciodată fi angajați ca salariați. ",0,1,0);
-        question[17] = new Intrebare(" O persoană poate răspunde penal: ","de la împlinirea vârstei de 14 ani; ","indiferent de vârstă; ","numai dacă este adultă. ",1,0,0);
-        question[18] = new Intrebare(" În România, pedeapsa cu moartea: ","este permisă; ","este interzisă; ","este permisă în situații excepționale.",0,1,0);
+        question[0] = new Intrebare("România este:","O monarhie","Un stat drept, democratic şi social, în care demnitatea omului, drepturile şi libertăţile cetăţenilor, libera dezvoltare a personalităţii umane, dreptatea şi pluralismul politic reprezintă valori supreme, în spiritul tradiţiilor democratice ale poporului român şi idealurilor Revoluţiei din decembrie 1989, şi sunt garantate","O republică comunistă",0,1,0);
+        question[1] = new Intrebare("În România: ","Respectarea legilor nu este obligatorie niciodată","Respectarea legilor este opțională","Respectarea Constituției, a supremației sale și a legilor este obligatorie",0,0,1);
+        question[2] = new Intrebare("Teritoriul României: ","Este alienabil","Nu este bine stabilit, deoarece România nu are frontiere ","România este un stat situat în sud-estul Europei Centrale, pe cursul inferior al Dunării, la nord de peninsula Balcanică și la țărmul nord-vestic al Mării Negre. Se învecinează cu Bulgaria la sud, Serbia la sud-vest, Ungaria la nord-vest, Ucraina la nord și est și Republica Moldova la est",0,0,1);
+        question[3] = new Intrebare("Statul român, România: ","Are ca fundament dezbinarea poporului român","România este patria comună şi indivizibilă a tuturor cetăţenilor săi, fără deosebire de rasă, de naţionalitate, de origine etnică, de limbă, de religie, de sex, de opinie, de apartenenţă politică, de avere sau de origine socială","Are ca fundament migrația popoarelor ",0,1,0);
+        question[4] = new Intrebare("Partidele politice din România:"," Nu reprezintă interesele nimănui","Nu sunt legal recunoscute","Se constituie şi îşi desfăşoară activitatea în condiţiile legii. Ele contribuie la definirea şi la exprimarea voinţei politice a cetăţenilor, respectând suveranitatea naţională, integritatea teritorială, ordinea de drept şi principiile democraţiei",0,0,1);
+        question[5] = new Intrebare("Drapelul României:"," Este multicolor","Are o frunză galbenă în prim plan","Este tricolor; culorile sunt aşezate vertical, în ordinea următoare începând de la lance: albastru, galben, roşu",0,0,1);
+        question[6] = new Intrebare("Limba oficială a României este:"," Limba Maghiară","Limba Română","Limba Engleză",0,1,0);
+        question[7] = new Intrebare("Capitala României este: "," București","Cluj Napoca","Sibiu",1,0,0);
+        question[8] = new Intrebare("Cetățenii: "," Cetățenii sunt mai presus de orice lege","Cetăţenii sunt egali în faţa legii şi a autorităţilor publice, fără privilegii şi fără discriminări.","Cetățenii nu sunt egali în drepturi și obligații",0,1,0);
+        question[9] = new Intrebare("Ce înseamnă că cetățenii au acces liber la justiție:","Orice persoană se poate adresa justiţiei pentru apărarea drepturilor, a libertăţilor şi a intereselor sale legitime","Legile pot îngrădi accesul cetățenilor la justiție","Justiția nu urmărește interesele cetățenilor",1,0,0);
+        question[10] = new Intrebare("Dreptul la viață și la integritate fizică și psihică înseamnă că:","Pedeapsa cu moartea este permisă în România","Oamenii pot fi supuși torturii în România","Nimeni nu poate fi supus torturii şi nici unui fel de pedeapsă sau de tratament inuman ori degradant",0,0,1);
+        question[11] = new Intrebare("Libertatea individuală și siguranța persoanei înseamnă că:","Libertatea individuală şi siguranţa persoanei sunt violabile.","Percheziţionarea, reţinerea sau arestarea unei persoane sunt permise numai în cazurile şi cu procedura prevăzute de lege","Percheziţionarea, reţinerea sau arestarea unei persoane sunt permise oricând și în orice condiții",0,1,0);
+        question[12] = new Intrebare("Cetățenii români:","Sunt obligați să rămână în țară, nu au voie să părăsească țara","Au dreptul de a-şi stabili domiciliul sau reşedinţa în orice localitate din ţară, de a emigra, precum şi de a reveni în ţară.","Nu au voie să părăsească țara mai mult de 30 de zile",0,1,0);
+        question[13] = new Intrebare("Fiecare cetățean român are:","Libertatea gândirii şi a opiniilor, precum şi libertatea credinţelor religioase care nu pot fi îngrădite sub nici o formă. Nimeni nu poate fi constrâns să adopte o opinie, ori să adere la o credinţă religioasă, contrare convingerilor sale","Obligația de a critica o altă persoană pentru alegerile pe care le face","Dreptul de a spune altei persoane ce să facă",1,0,0);
+        question[14] = new Intrebare("Este interzis prin lege:","Exprimarea opiniilor personale","Defăimarea ţării şi a naţiunii, îndemnul la război, îndemnul la agresiune, la ură naţională, rasială, de clasă sau religioasă, incitarea la discriminare, la separatism teritorial sau la violenţă publică, precum şi manifestările obscene, contrare bunelor moravuri","Exprimarea gândurilor sau a credințelor personale",0,1,0);
+        question[15] = new Intrebare("Cetățenii au drept de vot: ","De la vârsta de 18 ani, împliniți până în ziua alegerilor inclusiv","De la vârsta de 16 ani","De la vârsta de 22 ani",1,0,0);
+        question[16] = new Intrebare("Dreptul la muncă al cetățenilor:  ","Este îngrădit","Este obligatoriu de la 16 ani","Nu poate fi îngrădit. Alegerea profesiei, a meseriei sau a ocupaţiei, precum şi a locului de muncă este liberă",0,0,1);
+        question[17] = new Intrebare("Familia:","Este obligatoriu să-ți faci o familie când împlinești 18 ani","Nu este recunoscută prin lege","Se întemeiază pe căsătoria liber consimţită între soţi, pe egalitatea acestora şi pe dreptul şi îndatorirea părinţilor de a asigura creşterea, educaţia şi instruirea copiilor",0,0,1);
+        question[18] = new Intrebare("Dreptul la învățătură:","Este asigurat prin învăţământul general obligatoriu, prin învăţământul liceal şi prin cel profesional, prin învăţământul superior, precum şi prin alte forme de instrucţie şi de perfecţionare","Învățământul primar, general și liceal nu este obligatoriu ","Învățământul este obligatoriu doar pentru cei care frecventează școlile de stat",1,0,0);
+        question[18] = new Intrebare("Dreptul la grevă:","Nimeni nu are dreptul la grevă, la protest","Au dreptul la grevă doar cei cu studii superioare","Salariaţii au dreptul la grevă pentru apărarea intereselor profesionale, economice şi sociale",0,0,1);
+        question[20] = new Intrebare(" Ziua națională a României este: ","1 mai; ","1 iunie; ","1 decembrie. ",0,0,1);
+        question[21] = new Intrebare("Culorile drapelului României sunt: ","alb, roșu; ","albastru, galben, roșu; ","verde, alb, roșu; ",0,1,0);
+        question[22] = new Intrebare("Imnul național al României este: ","„Deșteptă-te române”; ","„Trei culori”; ","„Hora României”. ",1,0,0);
+        question[23] = new Intrebare("În România, limba oficială este: ","limba română; ","limba maghiară; ","limba engleză. ",1,0,0);
+        question[24] = new Intrebare("Capitala României este: ","Constanța; ","Timișoara; ","București. ",0,0,1);
+        question[25] = new Intrebare("Statul român este organizat pe principiul separației următoarelor puteri: ","legislativă, executivă și mass-media; ","executivă și judecătorească; ","legislativă, executivă și judecătorească. ",0,0,1);
+        question[26] = new Intrebare("Legile: ","sunt reguli obligatorii;","sunt reguli facultative; ","uneori sunt obligatorii, alteori sunt facultative. ",1,0,0);
+        question[27] = new Intrebare("Legea fundamentală a României este: ","Constituția; ","Codul penal; ","Codul civil. ",1,0,0);
+        question[28] = new Intrebare("Legile sunt adoptate de: ","Parlament; ","Guvern; ","Consiliile județene sau locale. ",1,0,0);
+        question[29] = new Intrebare(" Legile sunt aplicate de către: ","judecători; ","Președintele României; ","Parlamentul României. ",1,0,0);
+        question[30] = new Intrebare(" Statul român este reprezentat de către: ","Președintele României; ","ministrul justiției; ","primul-ministru. ",1,0,0);
+        question[31] = new Intrebare(" Președintele României este ales de către: ","Parlament; ","Comisia Europeană; ","cetățenii cu drept de vot. ",0,0,1);
+        question[32] = new Intrebare(" Cetățenii au drept de vot de la împlinirea vârstei de: ","14 ani; ","18 ani; ","20 ani. ",0,1,0);
+        question[33] = new Intrebare(" De regulă, o persoană se poate căsători la împlinirea vârstei de: ","16 ani; ","18 ani; ","20 ani; ",0,1,0);
+        question[34] = new Intrebare(" Căsătoria între rude: ","este permisă întotdeauna; ","nu este permisă niciodată; ","nu este permisă între rude până la gradul 4 inclusiv (adică verișorii), ca regulă. ",0,0,1);
+        question[35] = new Intrebare(" De regulă, obligația de a asigura creșterea, educația și instruirea copiilor o are/au: ","doar mama; ","doar tata; ","ambii părinți. ",0,0,1);
+        question[36] = new Intrebare(" Minorii: ","pot fi angajați ca salariați indiferent de vârstă; ","pot fi angajați ca salariați cel mai devreme la împlinirea vârstei de 15 ani; ","nu pot niciodată fi angajați ca salariați. ",0,1,0);
+        question[37] = new Intrebare(" O persoană poate răspunde penal: ","de la împlinirea vârstei de 14 ani; ","indiferent de vârstă; ","numai dacă este adultă. ",1,0,0);
+        question[38] = new Intrebare(" În România, pedeapsa cu moartea: ","este permisă; ","este interzisă; ","este permisă în situații excepționale.",0,1,0);
+
     }
 
     //Civil si familie

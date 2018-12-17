@@ -1,5 +1,6 @@
 package com.wakatech.invatarejuridica;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,23 +41,20 @@ public class Lideri extends AppCompatActivity {
         listaLideri = findViewById(R.id.lista_lideri);
 
         Retrofit.Builder builder = new Retrofit.Builder().
-                                    baseUrl("http://10.0.2.2:5000").
+                                    baseUrl("https://legal-cat.wakatech.ro/").
                                     addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
 
+        SharedPreferences sharedPref = this.getSharedPreferences("login_info",MODE_PRIVATE);
+        String token = sharedPref.getString("token",null);
         LeadersClient client = retrofit.create(LeadersClient.class);
-        Call<List<Leader>> call = client.getAllLeaders();
+        Call<List<Leader>> call = client.getAllLeaders(token);
 
         call.enqueue(new Callback<List<Leader>>() {
             @Override
             public void onResponse(Call<List<Leader>> call, Response<List<Leader>> response) {
                 List<Leader> lideriList = (ArrayList<Leader>) response.body();
-
-                for (int i=0;i<100;i++) {
-                    lideriList.add(new Leader("gigica",14));
-                }
-
                 LeaderboardsAdapter adapter = new LeaderboardsAdapter(Lideri.this,lideriList);
 
                 listaLideri.setAdapter(adapter);

@@ -11,10 +11,8 @@ import retrofit2.http.POST;
 
 public interface ProfilClient {
     @FormUrlEncoded
-    @GET("profil")
-    Call<ProfileInfo> getProfile(@Field("nume") String nume,
-                                 @Field("email") String token,
-                                 @Field("scoala") String password);
+    @POST("ci/API/profil")
+    Call<ProfileInfo> getProfile(@Field("token") String token,@Field("email") String email);
 
     @POST("/signup")
     Call<String> sendData(@Body IntrebareFactory intrebare);

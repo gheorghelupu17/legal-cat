@@ -1,5 +1,6 @@
 package com.wakatech.invatarejuridica;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -23,56 +24,78 @@ public class Login extends AppCompatActivity {
     private EditText usernameText;
     private EditText passwordText;
     private Button logInButton;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SharedPreferences sharedPref = this.getSharedPreferences("login_info",MODE_PRIVATE);
-        if (sharedPref.getInt("is_logged",0)==1)
-        {
-            grantAcces();
-        }
-
         setContentView(R.layout.activity_login);
 
         usernameText = findViewById(R.id.textUsername);
         passwordText = findViewById(R.id.textPassword);
         logInButton = findViewById(R.id.buttonLogIn);
+        context = this;
 
-    }
-
-    public void checkInfo(View view) {
-        String user = usernameText.getText().toString();
-        String pass = passwordText.getText().toString();
-        usernameText.setText(null);
-        passwordText.setText(null);
-        if (user.equals("") || pass.equals("")) {
-            grantAcces();
-        } else {
-
+        SharedPreferences data = this.getSharedPreferences("login_info",MODE_PRIVATE);
+        final String username = data.getString("username", null);
+        final String password = data.getString("password",null);
+        if (username!=null && password != null)
+        {
             Retrofit retrofit = new Retrofit.Builder().
-                    baseUrl("http://legal-cat.wakatech.ro/").
+                    baseUrl("https://legal-cat.ro/").
                     addConverterFactory(GsonConverterFactory.create())
                     .build();
 
             LoginClient loginClient = retrofit.create(LoginClient.class);
-            Call<Auth> call = loginClient.logInUser(new Auth(user,pass,null));
+            Call<Auth> call = loginClient.logInUser(username, password);
+            call.enqueue(new Callback<Auth>() {
+                @Override
+                public void onResponse(Call<Auth> call, Response<Auth> response) {
+                    Auth auth = response.body();
+                    if (auth.msg)
+                        grantAcces(username, password, auth.token);
+                    else
+                        Toast.makeText(Login.this,"User nu a fost gasit",Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                public void onFailure(Call<Auth> call, Throwable t) {
+
+                }
+            });
+        }
+
+
+    }
+
+    public void checkInfo(View view) {
+        final String user = usernameText.getText().toString();
+        final String pass = passwordText.getText().toString();
+        usernameText.setText(null);
+        passwordText.setText(null);
+        if (!user.equals("")  && !pass.equals(""))
+        {
+            Retrofit retrofit = new Retrofit.Builder().
+                    baseUrl("https://legal-cat.wakatech.ro/").
+                    addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            LoginClient loginClient = retrofit.create(LoginClient.class);
+            Call<Auth> call = loginClient.logInUser(user, pass);
 
             call.enqueue(new Callback<Auth>() {
                 @Override
                 public void onResponse(Call<Auth> call, Response<Auth> response) {
                     //assert (response.toString().equals(""));
-
-                    Auth mesaj = response.body();
-                    UserDetails.setEmail(mesaj.email);
-                    UserDetails.setName(mesaj.password);
-                    Toast.makeText(Login.this,mesaj.msg, Toast.LENGTH_LONG).show();
-                    grantAcces();
+                    if (response.body().msg)
+                        grantAcces(user, pass, response.body().token);
+                    else
+                        Toast.makeText(Login.this,"User nu a fost gasit",Toast.LENGTH_LONG).show();
                 }
 
                 @Override
                 public void onFailure(Call<Auth> call, Throwable t) {
-                    Toast.makeText(Login.this,"ERR",Toast.LENGTH_LONG).show();
+                    Toast.makeText(Login.this,"EROR",Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -80,10 +103,12 @@ public class Login extends AppCompatActivity {
 
     }
 
-    private void grantAcces() {
-        SharedPreferences sharedPref = this.getSharedPreferences("login_info",MODE_PRIVATE);
+    private void grantAcces(String user, String pass, String token) {
+        SharedPreferences sharedPref = context.getSharedPreferences("login_info",MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putInt("is_logged",1);
+        editor.putString("username",user);
+        editor.putString("password",pass);
+        editor.putString("token",token);
         editor.apply();
         Intent intent = new Intent(this,MainMenu.class);
         startActivity(intent);

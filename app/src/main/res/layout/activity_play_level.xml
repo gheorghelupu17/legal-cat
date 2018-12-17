@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".PlayLevel"
     android:orientation="vertical"
+    android:background="@mipmap/background_intrebari_fore"
     android:weightSum="4.5">
 
 
@@ -17,8 +18,8 @@
         android:gravity="center"
         android:textAlignment="center"
         android:text="Scor:4/10"
-        android:layout_weight="0.2"/>
-
+        android:layout_weight="0.2"
+        android:textColor="#FFF"/>
     <TextView
         android:id="@+id/play_level_intrebare"
         android:layout_width="match_parent"
@@ -26,9 +27,9 @@
         android:layout_weight="1"
         android:padding="10dp"
         android:gravity="center_vertical"
-
+        android:textSize="18dp"
         android:text="ici va fi intrebarea"
-        android:textColor="#000" />
+        android:textColor="#FFF" />
 
     <CheckBox
         android:id="@+id/raspuns1"
@@ -40,7 +41,10 @@
         android:layout_marginTop="8dp"
         android:buttonTint="@color/yello"
         android:text="CheckBox"
-        android:onClick="switchUserSelect" />
+        android:onClick="switchUserSelect"
+        android:textColor="#FFF"
+        android:textSize="18dp"
+        />
 
     <CheckBox
         android:id="@+id/raspuns2"
@@ -52,7 +56,10 @@
         android:layout_marginTop="8dp"
         android:buttonTint="@color/yello"
         android:onClick="switchUserSelect"
-        android:text="CheckBox" />
+        android:text="CheckBox"
+        android:textColor="#FFF"
+        android:textSize="18dp"
+        />
 
     <CheckBox
         android:id="@+id/raspuns3"
@@ -64,10 +71,13 @@
         android:layout_marginTop="8dp"
         android:buttonTint="@color/yello"
         android:text="CheckBox"
-        android:onClick="switchUserSelect" />
+        android:onClick="switchUserSelect"
+        android:textColor="#fff"
+        android:textSize="18dp"/>
 
     <Button
         android:id="@+id/buttonAnswer"
+        android:background="@drawable/gradient_button_intrebari"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.3"
@@ -75,7 +85,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:textColor="@color/yello_ras"
+        android:textAllCaps="false"
 
-        android:text="Answer"
+        android:text="Raspunde"
          />
 </LinearLayout>

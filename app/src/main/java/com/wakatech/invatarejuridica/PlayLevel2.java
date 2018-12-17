@@ -2,9 +2,15 @@ package com.wakatech.invatarejuridica;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -16,8 +22,10 @@ import com.wakatech.invatarejuridica.helper.Intrebare;
 import com.wakatech.invatarejuridica.helper.Intrebare2;
 import com.wakatech.invatarejuridica.helper.IntrebareFactory;
 import com.wakatech.invatarejuridica.helper.RandomGenerator;
+import com.wakatech.invatarejuridica.helper.WordDictionary;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class PlayLevel2 extends AppCompatActivity {
@@ -131,6 +139,8 @@ public class PlayLevel2 extends AppCompatActivity {
         raspuns2.setText(listaIntrebari.get(indexQuestion).raspuns2);
         scoreDisplay.setText(curentScore+"/10");
         buttonAnswer.setEnabled(false);
+
+        setLinks();
     }
 
     private boolean checkQuestion() {
@@ -146,4 +156,67 @@ public class PlayLevel2 extends AppCompatActivity {
         super.onBackPressed();
         return super.onSupportNavigateUp();
     }
+
+    public void setLinks()
+    {
+        SpannableString spannableStringIntrebare = new SpannableString(listaIntrebari.get(indexQuestion).intrebare);
+        SpannableString spannableStringRaspuns1 = new SpannableString(listaIntrebari.get(indexQuestion).raspuns1);
+        SpannableString spannableStringRaspuns2 = new SpannableString(listaIntrebari.get(indexQuestion).raspuns2);
+        String intrebareText = listaIntrebari.get(indexQuestion).intrebare;
+        String raspuns1Text = listaIntrebari.get(indexQuestion).raspuns1;
+        String raspuns2Text = listaIntrebari.get(indexQuestion).raspuns2;
+        WordDictionary dic = new WordDictionary();
+        HashMap<String, String > map = dic.descrieri;
+        for (final String key: map.keySet())
+        {
+            ClickableSpan clickableSpan = new ClickableSpan() {
+                @Override
+                public void onClick(@NonNull View widget) {
+                    //open boottom sheet
+                    BottomSheetDictionar bottomSheetDictionar = new BottomSheetDictionar();
+                    Bundle args = new Bundle();
+                    args.putString("word",key);
+                    bottomSheetDictionar.setArguments(args);
+                    bottomSheetDictionar.show(getSupportFragmentManager(),"bs");
+                }
+            };
+            int positionFound = intrebareText.toLowerCase().indexOf(key.toLowerCase());
+            if (positionFound!=-1) {
+                int positionEnd = intrebareText.toLowerCase().indexOf(' ', positionFound);
+                if (positionEnd!=-1)
+                    spannableStringIntrebare.setSpan(clickableSpan,positionFound,positionEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
+
+
+            positionFound = raspuns1Text.toLowerCase().indexOf(key.toLowerCase());
+            if (positionFound!=-1) {
+                int positionEnd = raspuns1Text.toLowerCase().indexOf(' ',positionFound);
+                if (positionEnd!=-1)
+                    spannableStringRaspuns1.setSpan(clickableSpan,positionFound,positionEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
+
+            positionFound = raspuns2Text.toLowerCase().indexOf(key.toLowerCase());
+            if (positionFound!=-1) {
+                int positionEnd = raspuns2Text.toLowerCase().indexOf(' ', positionFound);
+                if (positionEnd!=-1)
+                    spannableStringRaspuns2.setSpan(clickableSpan,positionFound,positionEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
+        }
+
+
+        intrebare.setText(spannableStringIntrebare);
+        raspuns1.setText(spannableStringRaspuns1);
+        raspuns2.setText(spannableStringRaspuns2);
+
+        intrebare.setMovementMethod(LinkMovementMethod.getInstance());
+        intrebare.setHighlightColor(Color.TRANSPARENT);
+
+        raspuns1.setMovementMethod(LinkMovementMethod.getInstance());
+        raspuns1.setHighlightColor(Color.TRANSPARENT);
+
+        raspuns2.setMovementMethod(LinkMovementMethod.getInstance());
+        raspuns2.setHighlightColor(Color.TRANSPARENT);
+
+    }
+
 }

@@ -66,7 +66,9 @@ public class MainMenu extends AppCompatActivity {
                     case R.id.logout:
                         SharedPreferences sharedPreferences= MainMenu.this.getSharedPreferences("login_info",MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putInt("is_logged",0);
+                        editor.remove("username");
+                        editor.remove("password");
+                        editor.remove("token");
                         editor.commit();
                         Intent logoutIntent = new Intent(MainMenu.this,Login.class);
                         startActivity(logoutIntent);

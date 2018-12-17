@@ -20,8 +20,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:background="@drawable/greencircle"
-                android:src="@mipmap/baseline_people_white_48"
+                android:background="@mipmap/logo"
+
                 android:padding="20dp"/>
             <TextView
                 android:id="@+id/text_name_profile_menu"
@@ -29,7 +29,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Gabriel Agache"
+                android:text=""
                 android:textColor="#fff"
                 android:textStyle="bold"
                 android:textSize="21sp"/>
@@ -52,7 +52,7 @@
                     android:gravity="center"
                     android:orientation="vertical"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_weight="1.5"
                     android:layout_height="match_parent">
                     <TextView
                         android:layout_width="wrap_content"
@@ -61,57 +61,39 @@
                         android:textSize="20sp"
                         />
                     <TextView
+                        android:id="@+id/score_text_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="125"
+
                         android:textStyle="bold"
                         android:textSize="20sp"
                         android:paddingTop="10dp"
                         android:textColor="@color/colorPrimary"/>
 
                 </LinearLayout>
-                <LinearLayout
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Intrebari"
-                        android:textSize="20sp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1205"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:paddingTop="10dp"
-                        android:textColor="@color/colorPrimary"/>
 
-                </LinearLayout>
                 <LinearLayout
-                    android:gravity="center"
-                    android:orientation="vertical"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Rank"
-                        android:textSize="20sp"
-                        />
+                        android:textSize="20sp" />
+
                     <TextView
+                        android:id="@+id/text_rank"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="#4"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
                         android:paddingTop="10dp"
-                        android:textColor="@color/colorPrimary"/>
+                        android:text="Incepator"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -133,7 +115,7 @@
             <ImageView
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:src="@mipmap/baseline_question_answer_white_24"/>
+                android:src="@mipmap/baseline_question_answer_24"/>
             <TextView
                 android:id="@+id/profile_email"
                 android:textStyle="bold"
@@ -142,10 +124,9 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:paddingLeft="20dp"
-                android:text="g_agache@yahoo.com"/>
+                android:text=""/>
         </LinearLayout>
         <LinearLayout
-            android:layout_marginTop="25dp"
             android:orientation="horizontal"
             android:paddingLeft="25dp"
             android:layout_width="match_parent"
@@ -153,16 +134,18 @@
             <ImageView
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:src="@mipmap/baseline_whatshot_white_24"/>
+                android:src="@mipmap/baseline_book_24"/>
             <TextView
+                android:id="@+id/scoala_text"
                 android:textStyle="bold"
-
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:paddingLeft="20dp"
-                android:text="Streak days: 15"/>
+                android:text=""/>
         </LinearLayout>
+
 
     <Button
         android:id="@+id/backButton"

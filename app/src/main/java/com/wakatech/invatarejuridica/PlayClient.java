@@ -1,6 +1,7 @@
 package com.wakatech.invatarejuridica;
 
 
+import com.wakatech.invatarejuridica.helper.Auth;
 import com.wakatech.invatarejuridica.networking.ProfileInfo;
 
 import retrofit2.Call;
@@ -13,15 +14,13 @@ import retrofit2.http.POST;
 public interface PlayClient {
 
     @FormUrlEncoded
-    @POST("/nivel_terminat")
-    Call<Boolean> postScore(@Field("nume") String nume,
-                            @Field("email") String token,
-                            @Field("scoala") String password,
-                            @Field("intrebari")String intrebari);
+    @POST("ci/API/finish_level")
+    Call<Auth> postScore(@Field("email") String email,
+                         @Field("token") String token,
+                         @Field("intrebari") String intrebari);
 
     @FormUrlEncoded
-    @GET("/get_score")
-    Call<ProfileInfo> getScore(@Field("nume") String nume,
-                               @Field("email") String token,
-                               @Field("scoala") String password);
+    @POST("ci/API/play")
+    Call<Leader> getScore(@Field("email") String email,
+                               @Field("token") String token);
 }

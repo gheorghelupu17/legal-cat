@@ -2,14 +2,15 @@ package com.wakatech.invatarejuridica;
 
 import android.support.annotation.NonNull;
 
-class Leader implements Comparable<Leader>{
-    private String name;
-    private int score;
+class Leader {
+    public String name;
+    public String intrebari;
+    public String email;
 
-
-    public Leader(String name, int score) {
+    public Leader(String name, String intrebari, String email) {
         this.name = name;
-        this.score = score;
+        this.intrebari = intrebari;
+        this.email = email;
     }
 
     public String getName() {
@@ -21,15 +22,29 @@ class Leader implements Comparable<Leader>{
     }
 
     public int getScore() {
+        char chars[] = intrebari.toCharArray();
+        int score = 0;
+        for (char c : chars)
+        {
+            switch (c)
+            {
+                case '1':
+                    score+=8;
+                    break;
+                case '2':
+                    score+=9;
+                    break;
+                case '3':
+                    score+=10;
+                    break;
+            }
+        }
         return score;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    public void setScore(String intrebari) {
+        this.intrebari = intrebari;
     }
 
-    @Override
-    public int compareTo(@NonNull Leader another) {
-        return Integer.compare(this.score,another.getScore());
-    }
+
 }

@@ -3,6 +3,7 @@ package com.wakatech.invatarejuridica;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -65,8 +66,8 @@ public class SignUp extends AppCompatActivity {
     public void registUser(View view) {
         String pass = passwordEt.getText().toString();
         String confirmPass = confirmPasswordEt.getText().toString();
-
-        if (pass.equals(confirmPass))
+        String email = emailEt.getText().toString();
+        if (pass.equals(confirmPass) && isValidEmail(email))
         {
             Retrofit retrofit = new Retrofit.Builder().
                     addConverterFactory(GsonConverterFactory.create()).
@@ -115,6 +116,14 @@ public class SignUp extends AppCompatActivity {
         Intent intent = new Intent(this,MainMenu.class);
         startActivity(intent);
         finish();
+    }
+
+    public  boolean isValidEmail(String target) {
+        if (TextUtils.isEmpty(target)) {
+            return false;
+        } else {
+            return android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
+        }
     }
 
 }

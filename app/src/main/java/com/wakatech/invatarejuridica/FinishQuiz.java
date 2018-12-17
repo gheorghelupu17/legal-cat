@@ -1,6 +1,7 @@
 package com.wakatech.invatarejuridica;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -10,15 +11,18 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.wakatech.invatarejuridica.helper.Auth;
 import com.wakatech.invatarejuridica.helper.IntrebareFactory;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class FinishQuiz extends AppCompatActivity {
@@ -30,6 +34,9 @@ public class FinishQuiz extends AppCompatActivity {
     private TextView nextNivel;
     int levelCompleted;
     int scoreLevelCompleted;
+    private String email;
+    private String token;
+    private String intrebari;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,29 +57,28 @@ public class FinishQuiz extends AppCompatActivity {
         restartNivel = findViewById(R.id.restart_level_finish);
         nextNivel = findViewById(R.id.next_level_finish);
 
-        Retrofit retrofit = new Retrofit.Builder().
-                addConverterFactory(ScalarsConverterFactory.create()).
-                baseUrl("http://10.0.2.2:5000").build();
+        SharedPreferences sharedPref = this.getSharedPreferences("login_info",MODE_PRIVATE);
+        token = sharedPref.getString("token",null);
+        email = sharedPref.getString("username", null);
+        intrebari = sharedPref.getString("intrebari", null);
 
-        ArrayList<Integer> list = new ArrayList<>();
-        for (int i =0 ;i<30;i++)
-            list.add(0);
-
-        list.set(levelCompleted,scoreLevelCompleted);
-
-        /*PlayClient playClient = retrofit.create(PlayClient.class);
-        Call<String> call = playClient.postScore(list);
-        call.enqueue(new Callback<String>() {
-            @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                Toast.makeText(FinishQuiz.this,"Updated",Toast.LENGTH_SHORT).show();
+        char[] nivele = intrebari.toCharArray();
+        char result = transformLevelEncoding(scoreLevelCompleted);
+        if (nivele[levelCompleted-1]<result)
+        {
+            nivele[levelCompleted-1] =  result;
+            StringBuilder builder = new StringBuilder();
+            for (char c:nivele)
+            {
+                builder.append(c);
             }
+            intrebari = builder.toString();
+            sentServerUpdates();
+        }
 
-            @Override
-            public void onFailure(Call<String> call, Throwable t) {
-                Toast.makeText(FinishQuiz.this,"Problema tehnica",Toast.LENGTH_SHORT).show();
-            }
-        });*/
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("intrebari", intrebari);
+        editor.apply();
 
         if (scoreLevelCompleted<8 || levelCompleted==10) {
             nextNivel.setClickable(false);
@@ -87,6 +93,32 @@ public class FinishQuiz extends AppCompatActivity {
         circleScore.setProgress(scoreLevelCompleted*10);
 
 
+    }
+
+    private void sentServerUpdates() {
+        Retrofit retrofit = new Retrofit.Builder().
+                baseUrl("https://legal-cat.wakatech.ro/").
+                addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        PlayClient playClient = retrofit.create(PlayClient.class);
+
+
+        Call<Auth> call = playClient.postScore(email, token, intrebari);
+        call.enqueue(new Callback<Auth>() {
+            @Override
+            public void onResponse(Call<Auth> call, Response<Auth> response) {
+                if (response.body().msg)
+                    Toast.makeText(FinishQuiz.this, "ok",Toast.LENGTH_LONG ).show();
+                else
+                    Toast.makeText(FinishQuiz.this, "problema",Toast.LENGTH_LONG ).show();
+            }
+
+            @Override
+            public void onFailure(Call<Auth> call, Throwable t) {
+                Toast.makeText(FinishQuiz.this, "eraore",Toast.LENGTH_LONG ).show();
+            }
+        });
     }
 
     @Override
@@ -118,5 +150,26 @@ public class FinishQuiz extends AppCompatActivity {
         intent.putExtra("level_number",level);
         startActivity(intent);
         finish();
+    }
+
+    public char transformLevelEncoding(int score)
+    {
+        char result;
+        switch (score)
+        {
+            case 8:
+                result = '1';
+                break;
+            case 9:
+                result = '2';
+                break;
+            case 10:
+                result = '3';
+                break;
+            default:
+                result = '0';
+                break;
+        }
+        return result;
     }
 }

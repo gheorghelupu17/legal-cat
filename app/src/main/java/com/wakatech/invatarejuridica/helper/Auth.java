@@ -1,15 +1,12 @@
 package com.wakatech.invatarejuridica.helper;
 
 public class Auth {
-    public String email;
-    public String password;
-    public String msg;
+    public boolean msg;
+    public String token;
 
-    public Auth(String email, String password, String msg) {
-        this.email = email;
-        this.password = password;
+    public Auth(boolean msg, String token) {
         this.msg = msg;
+        this.token = token;
     }
-
 }
 //aga@sdaca.com
