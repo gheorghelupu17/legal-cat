@@ -5,11 +5,16 @@
     <string name="title_activity_stiatica">stiatica</string>
 
     <string-array name="categories">
-        <item>Categoria 1</item>
-        <item>Categoria 2</item>
-        <item>Categoria 3</item>
-        <item>Categoria 4</item>
-        <item>Categoria 5</item>
+        <item>General</item>
+        <item>Civil si Familie</item>
+        <item>Drepturile tanarului</item>
+        <item>Drepturile copilului</item>
+        <item>Coruptia</item>
+        <item>General</item>
+        <item>Administratia</item>
+        <item>Administratia</item>
+        <item>Administratia</item>
+        <item>Drept penal</item>
     </string-array>
 
     <string-array name="judete">

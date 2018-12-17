@@ -47,9 +47,13 @@ public class LeaderboardsAdapter extends BaseAdapter {
         TextView score = v.findViewById(R.id.leaderboards_score);
 
         Leader actual_leader = items.get(position);
-        if (actual_leader.email.equals(emailLeader))
+        if (actual_leader.email.equals(emailLeader)) {
             v.setBackgroundColor(Color.BLUE);
+            pos.setTextColor(Color.WHITE);
+            name.setTextColor(Color.WHITE);
+            score.setTextColor(Color.WHITE);
 
+        }
         pos.setText(1+position+"");
         name.setText(actual_leader.getName());
         score.setText(actual_leader.getScore()+"");

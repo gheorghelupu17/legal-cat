@@ -75,100 +75,92 @@ public class PlayMode extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPref.edit();
                 intrebari = response.body().intrebari;
                 editor.putString("intrebari", intrebari);
-                editor.commit();
+                editor.apply();
                 //Toast.makeText(PlayMode.this, response.body().intrebari,Toast.LENGTH_LONG ).show();
-                terminat = 1;
+                char[] nivele = intrebari.toCharArray();
+
+                for (int i = 0; i < rootLinearLayout.getChildCount(); i++) {
+
+                    LinearLayout layout = (LinearLayout) rootLinearLayout.getChildAt(i);
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) layout.getLayoutParams();
+                    layoutParams.setMargins(0, 0, 0, 90);
+                    layout.setLayoutParams(layoutParams);
+
+                    CardView first = (CardView) layout.getChildAt(0);
+                    CardView second = (CardView) layout.getChildAt(1);
+
+                    ViewGroup.LayoutParams params = first.getLayoutParams();
+                    params.height = 330;
+                    first.setLayoutParams(params);
+                    second.setLayoutParams(params);
+
+                    final int firstLevel = i*2+1;
+                    final int secondLevel = i*2+2;
+
+                    if (nivele[firstLevel-1]=='0' && firstLevel!=1 && nivele[firstLevel-2]=='0')
+                        first.setBackgroundResource(R.drawable.unlock);
+                    else
+                    {
+                        first.addView(getLayoutInflater().inflate(R.layout.cardview_design, null));
+
+                        LinearLayout firstCardViewLayout = (LinearLayout) first.getChildAt(0);
+
+                        TextView firstText = (TextView) firstCardViewLayout.getChildAt(0);
+
+                        firstText.setText(IntrebareFactory.getLevelNameByNumber(firstLevel-1));
+
+                        TextView textScoreFirst = (TextView) firstCardViewLayout.getChildAt(1);
+
+                        textScoreFirst.setText(getNumberOfIntrebari(nivele[firstLevel-1])+"/10");
+
+                        LinearLayout firstPlayBoard = (LinearLayout) firstCardViewLayout.getChildAt(2);
+                        ImageButton playFirst = (ImageButton) firstPlayBoard.getChildAt(0);
+                        ImageButton learnFirst = (ImageButton) firstPlayBoard.getChildAt(1);
+
+                        playFirst.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                playQuizLevel(firstLevel);
+
+                            }
+                        });
+                    }
+                    if (nivele[secondLevel-1]=='0' && secondLevel!=1 && nivele[secondLevel-2]=='0')
+                        second.setBackgroundResource(R.drawable.unlock);
+                    else
+                    {
+                        second.addView(getLayoutInflater().inflate(R.layout.cardview_design, null));
+
+                        LinearLayout secondCardViewLayout = (LinearLayout) second.getChildAt(0);
+
+                        TextView secondText = (TextView) secondCardViewLayout.getChildAt(0);
+
+                        secondText.setText(IntrebareFactory.getLevelNameByNumber(secondLevel - 1));
+
+                        TextView textScoreSecond = (TextView) secondCardViewLayout.getChildAt(1);
+
+                        textScoreSecond.setText(getNumberOfIntrebari(nivele[secondLevel - 1]) + "/10");
+
+                        LinearLayout secondPlayBoard = (LinearLayout) secondCardViewLayout.getChildAt(2);
+                        ImageButton playSecond = (ImageButton) secondPlayBoard.getChildAt(0);
+                        ImageButton learnSecond = (ImageButton) secondPlayBoard.getChildAt(1);
+
+                        playSecond.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                playQuizLevel(secondLevel);
+                            }
+                        });
+                    }
+
+                }
 
             }
-
-
-
             @Override
             public void onFailure(Call<Leader> call, Throwable t) {
                 Toast.makeText(PlayMode.this, "eraore",Toast.LENGTH_LONG ).show();
             }
         });
-
-        intrebari = sharedPref.getString("intrebari", null);
-        char[] nivele = intrebari.toCharArray();
-
-        for (int i = 0; i < rootLinearLayout.getChildCount(); i++) {
-
-            LinearLayout layout = (LinearLayout) rootLinearLayout.getChildAt(i);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) layout.getLayoutParams();
-            layoutParams.setMargins(0, 0, 0, 90);
-            layout.setLayoutParams(layoutParams);
-
-            CardView first = (CardView) layout.getChildAt(0);
-            CardView second = (CardView) layout.getChildAt(1);
-
-            ViewGroup.LayoutParams params = first.getLayoutParams();
-            params.height = 330;
-            first.setLayoutParams(params);
-            second.setLayoutParams(params);
-
-            final int firstLevel = i*2+1;
-            final int secondLevel = i*2+2;
-
-            if (nivele[firstLevel-1]=='0' && firstLevel!=1 && nivele[firstLevel-2]=='0')
-                first.setBackgroundResource(R.drawable.unlock);
-            else
-            {
-                first.addView(getLayoutInflater().inflate(R.layout.cardview_design, null));
-
-                LinearLayout firstCardViewLayout = (LinearLayout) first.getChildAt(0);
-
-                TextView firstText = (TextView) firstCardViewLayout.getChildAt(0);
-
-                firstText.setText(IntrebareFactory.getLevelNameByNumber(firstLevel-1));
-
-                TextView textScoreFirst = (TextView) firstCardViewLayout.getChildAt(1);
-
-                textScoreFirst.setText(getNumberOfIntrebari(nivele[firstLevel-1])+"/10");
-
-                LinearLayout firstPlayBoard = (LinearLayout) firstCardViewLayout.getChildAt(2);
-                ImageButton playFirst = (ImageButton) firstPlayBoard.getChildAt(0);
-                ImageButton learnFirst = (ImageButton) firstPlayBoard.getChildAt(1);
-
-                playFirst.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        playQuizLevel(firstLevel);
-
-                    }
-                });
-            }
-            if (nivele[secondLevel-1]=='0' && secondLevel!=1 && nivele[secondLevel-2]=='0')
-                second.setBackgroundResource(R.drawable.unlock);
-            else
-            {
-                second.addView(getLayoutInflater().inflate(R.layout.cardview_design, null));
-
-                LinearLayout secondCardViewLayout = (LinearLayout) second.getChildAt(0);
-
-                TextView secondText = (TextView) secondCardViewLayout.getChildAt(0);
-
-                secondText.setText(IntrebareFactory.getLevelNameByNumber(secondLevel - 1));
-
-                TextView textScoreSecond = (TextView) secondCardViewLayout.getChildAt(1);
-
-                textScoreSecond.setText(getNumberOfIntrebari(nivele[secondLevel - 1]) + "/10");
-
-                LinearLayout secondPlayBoard = (LinearLayout) secondCardViewLayout.getChildAt(2);
-                ImageButton playSecond = (ImageButton) secondPlayBoard.getChildAt(0);
-                ImageButton learnSecond = (ImageButton) secondPlayBoard.getChildAt(1);
-
-                playSecond.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        playQuizLevel(secondLevel);
-                    }
-                });
-            }
-
-        }
-
-
     }
 
     private int getNumberOfIntrebari(char c) {
@@ -205,6 +197,7 @@ public class PlayMode extends AppCompatActivity {
             intent = new Intent(this, PlayLevel2.class);
         intent.putExtra("level_number",level);
         startActivity(intent);
+        finish();
     }
 
 }

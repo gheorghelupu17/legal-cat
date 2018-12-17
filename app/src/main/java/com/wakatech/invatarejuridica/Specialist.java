@@ -10,10 +10,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.wakatech.invatarejuridica.helper.Auth;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class Specialist extends AppCompatActivity {
@@ -50,22 +53,25 @@ public class Specialist extends AppCompatActivity {
                     Toast.makeText(Specialist.this,"Scrie o intrebare",Toast.LENGTH_SHORT).show();
                 } else {
                     Retrofit.Builder builder = new Retrofit.Builder().
-                            addConverterFactory(ScalarsConverterFactory.create()).
-                            baseUrl("http://10.0.2.2:5000");
+                            addConverterFactory(GsonConverterFactory.create()).
+                            baseUrl("https://legal-cat.wakatech.ro/");
                     Retrofit retrofit = builder.build();
 
                     SpecialistClient specialistClient = retrofit.create(SpecialistClient.class);
-                    Call<String> call = specialistClient.askQuestion(str);
+                    Call<Auth> call = specialistClient.askQuestion(str);
 
-                    call.enqueue(new Callback<String>() {
+                    call.enqueue(new Callback<Auth>() {
                         @Override
-                        public void onResponse(Call<String> call, Response<String> response) {
-                            Toast.makeText(Specialist.this, response.body(), Toast.LENGTH_SHORT).show();
+                        public void onResponse(Call<Auth> call, Response<Auth> response) {
+                            if (response.body().msg)
+                            {
+                                Toast.makeText(Specialist.this, "Mesaj trimis cu succes!", Toast.LENGTH_LONG).show();
+                            }
                         }
 
                         @Override
-                        public void onFailure(Call<String> call, Throwable t) {
-                            Toast.makeText(Specialist.this,"Intrebarea nu s-a putut trimite :(",Toast.LENGTH_LONG).show();
+                        public void onFailure(Call<Auth> call, Throwable t) {
+                            Toast.makeText(Specialist.this, "Check internet connection", Toast.LENGTH_LONG).show();
                         }
                     });
 

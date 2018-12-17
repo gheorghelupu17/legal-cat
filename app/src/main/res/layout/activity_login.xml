@@ -33,7 +33,8 @@
         android:paddingStart="15dp"
         app:layout_constraintBottom_toTopOf="@+id/textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="text"/>
 
     <EditText
         android:id="@+id/textPassword"

@@ -33,6 +33,5 @@ dependencies {
     implementation 'com.android.support:support-compat:27.1.1'
     implementation 'com.daimajia.easing:library:2.0@aar'
     implementation 'com.github.ksoichiro:android-observablescrollview:1.6.0'
-
     implementation 'com.daimajia.androidanimations:library:2.3@aar'
 }

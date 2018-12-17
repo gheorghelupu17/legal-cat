@@ -90,7 +90,9 @@ public class MainMenu extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (actionBarDrawerToggle.onOptionsItemSelected(item)){
             TextView navigationName = findViewById(R.id.name_navigation_display);
-            navigationName.setText(UserDetails.getName());
+            SharedPreferences prefs = this.getSharedPreferences("login_info", MODE_PRIVATE);
+            String nume = prefs.getString("username", null);
+            navigationName.setText(nume);
             return true;
         }
         return super.onOptionsItemSelected(item);
