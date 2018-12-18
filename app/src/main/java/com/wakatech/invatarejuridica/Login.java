@@ -95,7 +95,7 @@ public class Login extends AppCompatActivity {
                     if (response.body().msg)
                         grantAcces(user, pass, response.body().token);
                     else
-                        Toast.makeText(Login.this,"User nu a fost gasit",Toast.LENGTH_LONG).show();
+                        Toast.makeText(Login.this,"Date incorecte de autentificare",Toast.LENGTH_LONG).show();
                 }
 
                 @Override

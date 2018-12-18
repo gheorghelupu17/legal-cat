@@ -80,7 +80,7 @@ public class FinishQuiz extends AppCompatActivity {
         editor.putString("intrebari", intrebari);
         editor.apply();
 
-        if (scoreLevelCompleted<8 || levelCompleted==10) {
+        if (scoreLevelCompleted<8 || levelCompleted==16) {
             nextNivel.setClickable(false);
             nextNivel.setVisibility(View.INVISIBLE);
         }
@@ -108,15 +108,14 @@ public class FinishQuiz extends AppCompatActivity {
         call.enqueue(new Callback<Auth>() {
             @Override
             public void onResponse(Call<Auth> call, Response<Auth> response) {
-                if (response.body().msg)
-                    Toast.makeText(FinishQuiz.this, "ok",Toast.LENGTH_LONG ).show();
-                else
-                    Toast.makeText(FinishQuiz.this, "problema",Toast.LENGTH_LONG ).show();
+                if (!response.body().msg)
+                    //Toast.makeText(FinishQuiz.this, "ok",Toast.LENGTH_LONG ).show();
+                    Toast.makeText(FinishQuiz.this, "Check Internet connection",Toast.LENGTH_LONG ).show();
             }
 
             @Override
             public void onFailure(Call<Auth> call, Throwable t) {
-                Toast.makeText(FinishQuiz.this, "eraore",Toast.LENGTH_LONG ).show();
+                Toast.makeText(FinishQuiz.this, "Check Internet connection",Toast.LENGTH_LONG ).show();
             }
         });
     }
@@ -128,26 +127,15 @@ public class FinishQuiz extends AppCompatActivity {
     }
 
     public void restartLevel(View view) {
-        Intent intent;
-        int type = IntrebareFactory.getlevelType(levelCompleted);
-        if (type == 0)
-            intent = new Intent(this, PlayLevel.class);
-        else
-            intent = new Intent(this, PlayLevel2.class);
-        intent.putExtra("level_number",levelCompleted);
+        Intent intent = new Intent(this, PlayLevel.class);
+        intent.putExtra("level_number", levelCompleted);
         startActivity(intent);
         finish();
     }
 
     public void nextLevel(View view) {
-        int level = levelCompleted+1;
-        Intent intent;
-        int type = IntrebareFactory.getlevelType(level);
-        if (type == 0)
-            intent = new Intent(this, PlayLevel.class);
-        else
-            intent = new Intent(this, PlayLevel2.class);
-        intent.putExtra("level_number",level);
+        Intent intent = new Intent(this, PlayLevel.class);
+        intent.putExtra("level_number", levelCompleted+1);
         startActivity(intent);
         finish();
     }

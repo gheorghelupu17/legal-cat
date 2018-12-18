@@ -3,6 +3,7 @@
     <string name="open">open</string>
     <string name="close">close</string>
     <string name="title_activity_stiatica">stiatica</string>
+    <string name="terms"><a href="http://legal-cat.ro/termene">Sunt de acord cu termenele si condiitile gasite la linkul http://legal-cat.ro/termene</a></string>
 
     <string-array name="categories">
         <item>General</item>
@@ -10,10 +11,9 @@
         <item>Drepturile tanarului</item>
         <item>Drepturile copilului</item>
         <item>Coruptia</item>
-        <item>General</item>
         <item>Administratia</item>
-        <item>Administratia</item>
-        <item>Administratia</item>
+        <item>Rutier</item>
+        <item>Financiar</item>
         <item>Drept penal</item>
     </string-array>
 

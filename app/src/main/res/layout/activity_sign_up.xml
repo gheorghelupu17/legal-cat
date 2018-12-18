@@ -191,6 +191,17 @@
                 android:textAlignment="center"
                 />
 
+            <CheckBox
+                android:id="@+id/checkboxAccept"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sunt de acord cu termenele si condiitile gasite la linkul legal-cat.ro/termene"
+                android:buttonTint="@color/yello"
+                android:textColor="#FFF"/>
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="40dp"

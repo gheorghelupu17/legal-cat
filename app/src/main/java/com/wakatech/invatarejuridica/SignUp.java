@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -32,6 +34,7 @@ public class SignUp extends AppCompatActivity {
     private EditText emailEt;
     private EditText passwordEt;
     private EditText confirmPasswordEt;
+    private CheckBox check;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,9 @@ public class SignUp extends AppCompatActivity {
         emailEt = findViewById(R.id.email_inregistrare_et);
         passwordEt = findViewById(R.id.parola_inregistrare_et);
         confirmPasswordEt = findViewById(R.id.confirmare_parola_et);
+        check = findViewById(R.id.checkboxAccept);
+
+        check.setMovementMethod(LinkMovementMethod.getInstance());
 
         ArrayAdapter<CharSequence> judetAdapter = ArrayAdapter.createFromResource(this,R.array.judete,android.R.layout.simple_spinner_item);
         judetAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

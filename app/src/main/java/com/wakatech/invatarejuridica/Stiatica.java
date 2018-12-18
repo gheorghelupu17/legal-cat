@@ -1,6 +1,7 @@
 package com.wakatech.invatarejuridica;
 
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,7 +14,7 @@ import com.wakatech.invatarejuridica.helper.RandomGenerator;
 
 public class Stiatica extends AppCompatActivity {
 
-    private RelativeLayout background;
+    private ConstraintLayout background;
     private TextView factTextView;
     private Button buttonMaiArata;
 

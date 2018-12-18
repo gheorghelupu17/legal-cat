@@ -7,15 +7,15 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/baseline_face_black_18dp"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/baseline_face_black_18dp"
+        android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainMenu" />
         <activity
             android:name=".PlayMode"
-            android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Stiatica"
@@ -41,12 +41,11 @@
             android:name=".SignUp"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PlayLevel" />
-        <activity android:name=".LearnLevel" />
+
         <activity
             android:name=".FinishQuiz"
             android:label="Finish"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".PlayLevel2"></activity>
     </application>
 
 </manifest>

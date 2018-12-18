@@ -7,27 +7,27 @@
     tools:context=".Setari"
     android:orientation="vertical">
 
-    <Switch
-        android:id="@+id/notificari"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="30dp"
-        android:checked="true"
-        android:text="Notificari"
-        android:textSize="16sp"
-         />
+  <Switch
+      android:id="@+id/notificari"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="40dp"
+      android:layout_marginRight="40dp"
+      android:layout_marginTop="30dp"
+      android:checked="true"
+      android:text="Notificari"
+      android:textSize="16sp"
+      />
 
-    <Switch
-        android:id="@+id/sunet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="30dp"
-        android:checked="true"
-        android:text="Sunet"
-        android:textSize="16sp"
-        />
+  <Switch
+      android:id="@+id/sunet"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="40dp"
+      android:layout_marginRight="40dp"
+      android:layout_marginTop="30dp"
+      android:checked="true"
+      android:text="Sunet"
+      android:textSize="16sp"
+      />
 </LinearLayout>

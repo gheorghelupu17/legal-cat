@@ -189,12 +189,7 @@ public class PlayMode extends AppCompatActivity {
 
 
     public void playQuizLevel(int level) {
-        Intent intent;
-        int type = IntrebareFactory.getlevelType(level);
-        if (type == 0)
-            intent = new Intent(this, PlayLevel.class);
-        else
-            intent = new Intent(this, PlayLevel2.class);
+        Intent intent = new Intent(this, PlayLevel.class);
         intent.putExtra("level_number",level);
         startActivity(intent);
         finish();
