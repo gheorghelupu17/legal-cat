@@ -10,6 +10,9 @@ import retrofit2.http.POST;
 
 public interface SpecialistClient {
     @FormUrlEncoded
-    @POST("ci/API/intreaba")
-    Call<Auth> askQuestion(@Field("intrebare") String intrebare);
+    @POST("ci/API/send_email")
+    Call<Auth> askQuestion(@Field("email") String intrebare,
+                           @Field("categoria") String categoria,
+                           @Field("mesaj") String mesaj,
+                           @Field("token") String token);
 }

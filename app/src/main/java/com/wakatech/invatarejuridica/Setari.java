@@ -13,13 +13,13 @@ public class Setari extends AppCompatActivity {
         setContentView(R.layout.activity_setari);
 
         ActionBar toolbar = getSupportActionBar();
-        toolbar.setTitle("Setari");
+        toolbar.setTitle("Despre noi");
         toolbar.setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
     public boolean onSupportNavigateUp() {
-        finish();
+        super.onBackPressed();
         return true;
     }
 }

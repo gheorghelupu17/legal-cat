@@ -10,8 +10,8 @@
 
     <item
         android:id="@+id/settings"
-        android:title="Setari"
-        android:icon="@mipmap/baseline_settings_black_18dp"
+        android:title="Despre noi"
+        android:icon="@drawable/ic_info_outline_black_24dp"
         />
 
     <item

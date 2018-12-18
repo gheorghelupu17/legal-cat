@@ -109,12 +109,12 @@ public class PlayLevel extends AppCompatActivity {
     }
 
     private boolean checkQuestion() {
-        //backdoor
+        /*backdoor
         Intent i = new Intent(context,FinishQuiz.class);
         i.putExtra("score",10);
         i.putExtra("level_number",levelNumber);
         startActivity(i);
-        finish();
+        finish();*/
 
         Intrebare deVerificat = listaIntrebari.get(indexQuestion-1);
         if (userSelect1 != deVerificat.isCorect1())

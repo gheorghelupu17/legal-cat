@@ -115,7 +115,7 @@ public class FinishQuiz extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Auth> call, Throwable t) {
-                Toast.makeText(FinishQuiz.this, "Check Internet connection",Toast.LENGTH_LONG ).show();
+                Toast.makeText(FinishQuiz.this, "Check Internet conction",Toast.LENGTH_LONG ).show();
             }
         });
     }

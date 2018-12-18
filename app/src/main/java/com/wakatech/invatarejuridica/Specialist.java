@@ -1,5 +1,6 @@
 package com.wakatech.invatarejuridica;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +25,10 @@ public class Specialist extends AppCompatActivity {
     private Spinner spinner;
     private Button askButton;
     private EditText intrebare;
+    private String email;
+    private String token;
+    private String mesaj;
+    private String categorie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +43,11 @@ public class Specialist extends AppCompatActivity {
         askButton = findViewById(R.id.askbutton);
         intrebare = findViewById(R.id.intrebare);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+        SharedPreferences sharedPref = this.getSharedPreferences("login_info", MODE_PRIVATE);
+        email = sharedPref.getString("username", null);
+        token = sharedPref.getString("token", null);
+
+        final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.categories, android.R.layout.simple_spinner_item);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -47,8 +56,9 @@ public class Specialist extends AppCompatActivity {
         askButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String str = String.valueOf(intrebare.getText());
-                if (str == null || str.equals("")) {
+                mesaj = String.valueOf(intrebare.getText());
+                categorie = (String) spinner.getSelectedItem();
+                if (mesaj == null || mesaj.equals("")) {
                     //Validam ca intrebarea sa nu fie goala
                     Toast.makeText(Specialist.this,"Scrie o intrebare",Toast.LENGTH_SHORT).show();
                 } else {
@@ -58,7 +68,7 @@ public class Specialist extends AppCompatActivity {
                     Retrofit retrofit = builder.build();
 
                     SpecialistClient specialistClient = retrofit.create(SpecialistClient.class);
-                    Call<Auth> call = specialistClient.askQuestion(str);
+                    Call<Auth> call = specialistClient.askQuestion(email, categorie, mesaj, token);
 
                     call.enqueue(new Callback<Auth>() {
                         @Override

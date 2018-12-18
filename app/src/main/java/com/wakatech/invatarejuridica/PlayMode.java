@@ -74,6 +74,7 @@ public class PlayMode extends AppCompatActivity {
             public void onResponse(Call<Leader> call, Response<Leader> response) {
                 SharedPreferences.Editor editor = sharedPref.edit();
                 intrebari = response.body().intrebari;
+                //Toast.makeText(PlayMode.this, intrebari.length()+" ", Toast.LENGTH_LONG).show();
                 editor.putString("intrebari", intrebari);
                 editor.apply();
                 //Toast.makeText(PlayMode.this, response.body().intrebari,Toast.LENGTH_LONG ).show();

@@ -357,7 +357,7 @@ public class IntrebareFactory {
         question[1] = new Intrebare("O taxă este datorată:","când cumpărăm un bun","când beneficiem de un serviciu public","când mergem în vacanţă.",0,1,0);
         question[2] = new Intrebare("O contribuţie socială este o sumă de banidatorată:","pentru a fi asigurat în viitor","doar de cetăţenii români","uneori şi de animale.",1,0,0);
         question[3] = new Intrebare("O persoană fizică datorează impozit","când nu are niciun venit","când are venituri din muncă, ca şi salariat","când primeşte un cadou.",0,1,0);
-        question[4] = new Intrebare("O persoană fizică datorează impozit","când merge la medic pentru o consultaţie","când cumpără combustibil pentru maşină","când plăteşte parcarea.",0,1,0);
+        question[4] = new Intrebare("O persoană fizică datorează impozit:","când merge la medic pentru o consultaţie","când cumpără combustibil pentru maşină","când plăteşte parcarea.",0,1,0);
         question[5] = new Intrebare("O societate, care operează un magazine de haine:","datorează numai un impozit","datorează mai multe impozite, unele pentru ea, altele pentru salariaţi","nu datorează niciun impozit dacă nu vinde nimic",0,1,0);
         question[6] = new Intrebare("Un mic comerciant, care are o tonetă cu verdeţuri, are obligaţia:","de a se înregistra fiscal","de a avea salariaţi","de a face reclamă",1,0,0);
         question[7] = new Intrebare("Pentru o tranzacţie economică, este necesar să se emită:","întotdeauna factură","întotdeauna bon fiscal","uneori factură, uneori bon fiscal, chiar şi amândouă.",0,0,1);

@@ -11,6 +11,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wakatech.invatarejuridica.helper.Auth;
@@ -34,24 +35,26 @@ public class SignUp extends AppCompatActivity {
     private EditText emailEt;
     private EditText passwordEt;
     private EditText confirmPasswordEt;
-    private CheckBox check;
+    private CheckBox checkAccept;
+    private TextView textAccept;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        judetSpinner = findViewById(R.id.judet_spinner);
-        scoalaAutoComplete = findViewById(R.id.scoala_auto_tv);
-        clasaSpinner = findViewById(R.id.clasa_spinner);
-        varstaEt = findViewById(R.id.varsta_ed);
-        numeEt = findViewById(R.id.nume_inregistrare_et);
-        emailEt = findViewById(R.id.email_inregistrare_et);
-        passwordEt = findViewById(R.id.parola_inregistrare_et);
-        confirmPasswordEt = findViewById(R.id.confirmare_parola_et);
-        check = findViewById(R.id.checkboxAccept);
+        judetSpinner        = findViewById(R.id.judet_spinner);
+        scoalaAutoComplete  = findViewById(R.id.scoala_auto_tv);
+        clasaSpinner        = findViewById(R.id.clasa_spinner);
+        varstaEt            = findViewById(R.id.varsta_ed);
+        numeEt              = findViewById(R.id.nume_inregistrare_et);
+        emailEt             = findViewById(R.id.email_inregistrare_et);
+        passwordEt          = findViewById(R.id.parola_inregistrare_et);
+        confirmPasswordEt   = findViewById(R.id.confirmare_parola_et);
+        checkAccept         = findViewById(R.id.checkboxAccept);
+        textAccept          = findViewById(R.id.textAccept);
 
-        check.setMovementMethod(LinkMovementMethod.getInstance());
+        textAccept.setMovementMethod(LinkMovementMethod.getInstance());
 
         ArrayAdapter<CharSequence> judetAdapter = ArrayAdapter.createFromResource(this,R.array.judete,android.R.layout.simple_spinner_item);
         judetAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -186,15 +189,17 @@ public class SignUp extends AppCompatActivity {
             validData = false;
         }
         else {
-            String nume = numeEt.getText().toString();
-            String email = emailEt.getText().toString();
-            String pass = passwordEt.getText().toString();
-            String judet = judetSpinner.getSelectedItem().toString();
+            String nume =   numeEt.getText().toString();
+            String email =  emailEt.getText().toString();
+            String pass =   passwordEt.getText().toString();
+            String judet =  judetSpinner.getSelectedItem().toString();
             String scoala = scoalaAutoComplete.getText().toString();
-            String clasa = clasaSpinner.getSelectedItem().toString();
+            String clasa =  clasaSpinner.getSelectedItem().toString();
             int varsta = Integer.parseInt(varstaEt.getText().toString());
             if (nume.equals("")||email.equals("")||judet.equals("")||scoala.equals("")||clasa.equals("")||varsta==0)
                 Toast.makeText(SignUp.this, "Completeaza toate datele", Toast.LENGTH_LONG).show();
+            else if (!checkAccept.isChecked())
+                Toast.makeText(SignUp.this, "Trebuie sa fii de acord cu termenele si conditiile", Toast.LENGTH_LONG).show();
             else
                 registerUser(getFormsData());
         }
