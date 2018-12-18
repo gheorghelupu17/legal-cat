@@ -62,6 +62,12 @@ public class FinishQuiz extends AppCompatActivity {
         email = sharedPref.getString("username", null);
         intrebari = sharedPref.getString("intrebari", null);
 
+        SharedPreferences hintPrefs = this.getSharedPreferences("hints", MODE_PRIVATE);
+        SharedPreferences.Editor hintEditor = hintPrefs.edit();
+        int numberOfTries = hintPrefs.getInt("Level"+levelCompleted,1);
+        hintEditor.putInt("Level"+levelCompleted, numberOfTries+1);
+        hintEditor.apply();
+
         char[] nivele = intrebari.toCharArray();
         char result = transformLevelEncoding(scoreLevelCompleted);
         if (nivele[levelCompleted-1]<result)

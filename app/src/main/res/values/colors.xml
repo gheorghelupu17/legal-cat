@@ -14,5 +14,5 @@
     <color name="niceGray">#d3d3d3</color>
     <color name="black_overlay">#66000000</color>
     <color name="yello_ras">#ffbb00</color>
-    <color name="transparent">#FFFFFFFF</color>
+    <color name="transparent">#00ffffff</color>
 </resources>

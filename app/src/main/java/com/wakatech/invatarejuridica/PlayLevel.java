@@ -2,6 +2,7 @@ package com.wakatech.invatarejuridica;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
@@ -50,6 +51,7 @@ public class PlayLevel extends AppCompatActivity {
     private List<Intrebare> listaIntrebari;
     int curentScore = 0;
     int levelNumber;
+    int switchHint = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,30 +87,102 @@ public class PlayLevel extends AppCompatActivity {
 
         setContent(indexQuestion);
 
-        buttonAnswer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ++indexQuestion;
-                if (checkQuestion())
-                    curentScore++;
+        SharedPreferences sharedPref = this.getSharedPreferences("hints", MODE_PRIVATE);
+        int tryNumber = sharedPref.getInt("Level"+levelNumber, 1);
+        if (tryNumber%3==0)
+        {
+            buttonAnswer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (switchHint==0)
+                    {
+                        if (checkQuestion())
+                        {
+                            curentScore++;
+                            indexQuestion++;
+                            if (indexQuestion==10)
+                            {
+                                Intent i = new Intent(context,FinishQuiz.class);
+                                i.putExtra("score",curentScore);
+                                i.putExtra("level_number",levelNumber);
+                                startActivity(i);
+                                finish();
+                            }
+                            else
+                            {
+                                raspuns1.setBackgroundResource(R.color.transparent);
+                                raspuns2.setBackgroundResource(R.color.transparent);
+                                raspuns3.setBackgroundResource(R.color.transparent);
+                                animateEverything();
+                                setContent(indexQuestion);
+                            }
+                            switchHint = 0;
+                        }
+                        else
+                        {
+                            if (listaIntrebari.get(indexQuestion).isCorect1())
+                                raspuns1.setBackgroundResource(R.color.green);
+                            if (listaIntrebari.get(indexQuestion).isCorect2())
+                                raspuns2.setBackgroundResource(R.color.green);
+                            if (listaIntrebari.get(indexQuestion).isCorect3())
+                                raspuns3.setBackgroundResource(R.color.green);
+                            buttonAnswer.setText("Next");
+                            switchHint = 1;
+                        }
 
-                if (indexQuestion==10) {
+                    }
+                    else
+                    {
+                        indexQuestion++;
+                        if (indexQuestion==10)
+                        {
+                            Intent i = new Intent(context,FinishQuiz.class);
+                            i.putExtra("score",curentScore);
+                            i.putExtra("level_number",levelNumber);
+                            startActivity(i);
+                            finish();
+                        }
+                        else
+                        {
+                            raspuns1.setBackgroundResource(R.color.transparent);
+                            raspuns2.setBackgroundResource(R.color.transparent);
+                            raspuns3.setBackgroundResource(R.color.transparent);
+                            animateEverything();
+                            setContent(indexQuestion);
+                        }
+                        switchHint = 0;
+                    }
+                }
+            });
+        }
+        else
+        {
+            buttonAnswer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (checkQuestion())
+                        curentScore++;
+                    indexQuestion++;
+                    if (indexQuestion==10) {
 
-                    Intent i = new Intent(context,FinishQuiz.class);
-                    i.putExtra("score",curentScore);
-                    i.putExtra("level_number",levelNumber);
-                    startActivity(i);
-                    finish();
-                } else {
+                        Intent i = new Intent(context,FinishQuiz.class);
+                        i.putExtra("score",curentScore);
+                        i.putExtra("level_number",levelNumber);
+                        startActivity(i);
+                        finish();
+                    } else {
 
-                    animateEverything();
-                    setContent(indexQuestion);
+                        animateEverything();
+                        setContent(indexQuestion);
+
+                    }
 
                 }
 
-            }
+            });
+        }
 
-        });
+
 
     }
 
@@ -120,7 +194,7 @@ public class PlayLevel extends AppCompatActivity {
         startActivity(i);
         finish();*/
 
-        Intrebare deVerificat = listaIntrebari.get(indexQuestion-1);
+        Intrebare deVerificat = listaIntrebari.get(indexQuestion);
         if (userSelect1 != deVerificat.isCorect1())
             return false;
         if (userSelect2 != deVerificat.isCorect2())
@@ -192,7 +266,7 @@ public class PlayLevel extends AppCompatActivity {
         raspuns1.setText(listaIntrebari.get(indexQuestion).getRaspuns1());
         raspuns2.setText(listaIntrebari.get(indexQuestion).getRaspuns2());
         raspuns3.setText(listaIntrebari.get(indexQuestion).getRaspuns3());
-
+        buttonAnswer.setText("Raspunde");
         scoreDisplay.setText(curentScore+"/10");
         buttonAnswer.setEnabled(false);
         setLinks();
