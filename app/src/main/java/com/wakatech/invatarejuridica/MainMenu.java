@@ -80,7 +80,7 @@ public class MainMenu extends AppCompatActivity {
                         Intent webIntent = new Intent();
                         webIntent.setAction(Intent.ACTION_VIEW);
                         webIntent.addCategory(Intent.CATEGORY_BROWSABLE);
-                        webIntent.setData(Uri.parse("http://legal-cat.ro"));
+                        webIntent.setData(Uri.parse("https://legal-cat.ro/ghid_juridic.pdf"));
                         startActivity(webIntent);
                         break;
                 }

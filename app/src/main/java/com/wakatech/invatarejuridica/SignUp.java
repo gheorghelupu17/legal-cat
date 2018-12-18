@@ -184,8 +184,8 @@ public class SignUp extends AppCompatActivity {
             Toast.makeText(SignUp.this, "Parolele nu coincid", Toast.LENGTH_LONG).show();
             validData = false;
         }
-        else if (passwordEt.getText().toString().length()<6) {
-            Toast.makeText(SignUp.this, "Parola trebuie sa contina minim 6 caractere", Toast.LENGTH_LONG).show();
+        else if (!validPass(passwordEt.getText().toString())) {
+            Toast.makeText(SignUp.this, "Parola trebuie sa contina minim 6 caractere si cifre", Toast.LENGTH_LONG).show();
             validData = false;
         }
         else {
@@ -203,6 +203,21 @@ public class SignUp extends AppCompatActivity {
             else
                 registerUser(getFormsData());
         }
+    }
+
+    private boolean validPass(String s) {
+        int numbers = 0;
+
+        if (s.length()<6)
+            return false;
+        for (char c : s.toCharArray())
+        {
+            if ('0'<c && c<'9')
+                numbers++;
+        }
+        if (numbers>0)
+            return true;
+        return false;
     }
 
 }

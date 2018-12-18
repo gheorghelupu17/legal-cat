@@ -3,6 +3,7 @@ package com.wakatech.invatarejuridica;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -11,6 +12,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wakatech.invatarejuridica.helper.Auth;
@@ -28,6 +30,7 @@ public class Login extends AppCompatActivity {
     private EditText passwordText;
     private Button logInButton;
     private Context context;
+    private TextView web2Change;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +40,20 @@ public class Login extends AppCompatActivity {
         usernameText = findViewById(R.id.textUsername);
         passwordText = findViewById(R.id.textPassword);
         logInButton = findViewById(R.id.buttonLogIn);
+        web2Change = findViewById(R.id.web2change);
+
         context = this;
 
+        web2Change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent webIntent = new Intent();
+                webIntent.setAction(Intent.ACTION_VIEW);
+                webIntent.addCategory(Intent.CATEGORY_BROWSABLE);
+                webIntent.setData(Uri.parse("https://legal-cat.ro/api/reset-password"));
+                startActivity(webIntent);
+            }
+        });
 
 
         SharedPreferences data = this.getSharedPreferences("login_info",MODE_PRIVATE);
@@ -62,7 +77,6 @@ public class Login extends AppCompatActivity {
                     else
                         Toast.makeText(Login.this,"User nu a fost gasit",Toast.LENGTH_LONG).show();
                 }
-
                 @Override
                 public void onFailure(Call<Auth> call, Throwable t) {
 
