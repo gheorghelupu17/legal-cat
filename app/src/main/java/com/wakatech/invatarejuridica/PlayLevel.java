@@ -3,6 +3,7 @@ package com.wakatech.invatarejuridica;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,8 @@ import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
@@ -88,6 +91,7 @@ public class PlayLevel extends AppCompatActivity {
                 ++indexQuestion;
                 if (checkQuestion())
                     curentScore++;
+
                 if (indexQuestion==10) {
 
                     Intent i = new Intent(context,FinishQuiz.class);
@@ -223,8 +227,12 @@ public class PlayLevel extends AppCompatActivity {
             if (positionFound!=-1)
             {
                 int positionEnd = intrebareText.toLowerCase().indexOf(' ',positionFound);
-                if (positionEnd!=-1)
-                    spannableStringIntrebare.setSpan(clickableSpan,positionFound,positionEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                if (positionEnd!=-1) {
+                    if (positionFound == 0)
+                        spannableStringIntrebare.setSpan(clickableSpan, positionFound, positionEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    else if (intrebareText.charAt(positionFound - 1) == ' ')
+                        spannableStringIntrebare.setSpan(clickableSpan, positionFound, positionEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                }
             }
 
 
@@ -232,7 +240,11 @@ public class PlayLevel extends AppCompatActivity {
             if (positionFound!=-1) {
                 int positionEnd = raspuns1Text.toLowerCase().indexOf(' ',positionFound);
                 if (positionEnd!=-1)
-                    spannableStringRaspuns1.setSpan(clickableSpan,positionFound,positionEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    if (positionFound==0)
+                        spannableStringRaspuns1.setSpan(clickableSpan,positionFound,positionEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    else
+                    if(raspuns1Text.charAt(positionFound-1)==' ')
+                        spannableStringRaspuns1.setSpan(clickableSpan,positionFound,positionEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             }
 
 
@@ -240,7 +252,11 @@ public class PlayLevel extends AppCompatActivity {
             if (positionFound!=-1) {
                 int positionEnd = raspuns2Text.toLowerCase().indexOf(' ', positionFound);
                 if (positionEnd!=-1)
-                    spannableStringRaspuns2.setSpan(clickableSpan,positionFound,positionEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    if (positionFound==0)
+                        spannableStringRaspuns2.setSpan(clickableSpan,positionFound,positionEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    else
+                        if(raspuns2Text.charAt(positionFound-1)==' ')
+                            spannableStringRaspuns2.setSpan(clickableSpan,positionFound,positionEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             }
 
 
@@ -248,7 +264,11 @@ public class PlayLevel extends AppCompatActivity {
             if (positionFound!=-1) {
                 int positionEnd = raspuns3Text.toLowerCase().indexOf(' ', positionFound);
                 if (positionEnd!=-1)
-                    spannableStringRaspuns3.setSpan(clickableSpan,positionFound,positionEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    if (positionFound==0)
+                        spannableStringRaspuns3.setSpan(clickableSpan,positionFound,positionEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    else
+                    if(raspuns3Text.charAt(positionFound-1)==' ')
+                        spannableStringRaspuns3.setSpan(clickableSpan,positionFound,positionEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             }
 
         }

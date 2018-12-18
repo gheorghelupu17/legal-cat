@@ -15,9 +15,17 @@
         />
 
     <item
+        android:id="@+id/ghidJuridicButton"
+        android:title="Ghid juridic"
+        android:icon="@drawable/ic_import_contacts_black_24dp"
+        />
+
+    <item
         android:id="@+id/logout"
         android:title="Exit"
         android:icon="@mipmap/baseline_exit_to_app_black_18dp"
         />
+
+
 
 </menu>

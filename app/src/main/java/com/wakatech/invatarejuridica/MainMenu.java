@@ -2,6 +2,7 @@ package com.wakatech.invatarejuridica;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -73,6 +74,14 @@ public class MainMenu extends AppCompatActivity {
                         Intent logoutIntent = new Intent(MainMenu.this,Login.class);
                         startActivity(logoutIntent);
                         finish();
+                        break;
+
+                    case R.id.ghidJuridicButton:
+                        Intent webIntent = new Intent();
+                        webIntent.setAction(Intent.ACTION_VIEW);
+                        webIntent.addCategory(Intent.CATEGORY_BROWSABLE);
+                        webIntent.setData(Uri.parse("http://legal-cat.ro"));
+                        startActivity(webIntent);
                         break;
                 }
                 return false;
