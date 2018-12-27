@@ -69,7 +69,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:layout_weight="2.9"
-                            android:text="Testeaza-ti cunostintele"
+                            android:text="Testează-ți cunoștințele"
                             android:textSize="12sp"
 
                             android:textColor="@android:color/darker_gray"/>
@@ -120,7 +120,7 @@
                             android:layout_weight="3"
                             android:layout_marginTop="5dp"
                             android:gravity="center"
-                            android:text="Dictionar"/>
+                            android:text="Dicționar"/>
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
@@ -133,7 +133,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:layout_weight="2.9"
-                            android:text="Cauta cuvinte in dictionar"
+                            android:text="Caută cuvinte in dicționar"
                             android:textSize="12sp"
 
                             android:textColor="@android:color/darker_gray"/>
@@ -173,7 +173,7 @@
                             android:layout_weight="3"
                             android:layout_marginTop="5dp"
                             android:gravity="center"
-                            android:text="Stiati ca?"/>
+                            android:text="Stiați că?"/>
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
@@ -186,7 +186,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:layout_weight="2.9"
-                            android:text="Afla ceva nou"
+                            android:text="Află ceva nou"
                             android:textSize="12sp"
 
                             android:textColor="@android:color/darker_gray"/>
@@ -291,7 +291,7 @@
                             android:layout_weight="3"
                             android:layout_marginTop="5dp"
                             android:gravity="center"
-                            android:text="Intreaba"/>
+                            android:text="Intreabă"/>
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
@@ -304,7 +304,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:layout_weight="2.9"
-                            android:text="Intreaba un specialist"
+                            android:text="Intreabă un specialist"
                             android:textSize="12sp"
                             android:textColor="@android:color/darker_gray"/>
 

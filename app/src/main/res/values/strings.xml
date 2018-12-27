@@ -8,14 +8,15 @@
 
     <string-array name="categories">
         <item>General</item>
-        <item>Civil si Familie</item>
-        <item>Drepturile tanarului</item>
+        <item>Civil și Familie</item>
+        <item>Drepturile tânărului</item>
         <item>Drepturile copilului</item>
-        <item>Coruptia</item>
-        <item>Administratia</item>
+        <item>Corupția</item>
+        <item>Administrația</item>
         <item>Rutier</item>
         <item>Financiar</item>
         <item>Drept penal</item>
+        <item>Drept notarial</item>
     </string-array>
 
     <string-array name="judete">
