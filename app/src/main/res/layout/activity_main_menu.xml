@@ -7,315 +7,315 @@
     tools:context=".MainMenu"
     android:id="@+id/drawer_layout">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="#fcfcfc"
-            android:padding="20dp"
-            android:gravity="center"
-            android:weightSum="3">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#fcfcfc"
+        android:padding="20dp"
+        android:gravity="center"
+        android:weightSum="3">
 
-            <LinearLayout
-                android:clipToPadding="false"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+        <LinearLayout
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <android.support.v7.widget.CardView
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="openPlayMode"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
                 android:layout_weight="1">
 
-                <android.support.v7.widget.CardView
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:onClick="openPlayMode"
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1">
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:weightSum="10">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center"
+                        android:background="@drawable/yellowcircle"
+                        android:src="@mipmap/baseline_play_arrow_white_24"
                         android:padding="10dp"
-                        android:weightSum="10">
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-
-                            android:background="@drawable/yellowcircle"
-                            android:src="@mipmap/baseline_play_arrow_white_24"
-                            android:padding="10dp"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:layout_weight="3"
-                            android:layout_marginTop="5dp"
-                            android:gravity="center"
-                            android:text="Play"/>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/lightgray"
-
-                            android:layout_weight="0.1"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_weight="2.9"
-                            android:text="Testeaza-ti cunostintele"
-                            android:textSize="12sp"
-
-                            android:textColor="@android:color/darker_gray"/>
-
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:clipToPadding="false"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:weightSum="2">
-
-                <android.support.v7.widget.CardView
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:onClick="openDictionar"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:layout_weight="3"
+                        android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:padding="10dp"
-                        android:weightSum="10">
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-
-                            android:background="@drawable/bluecircle"
-                            android:src="@mipmap/baseline_book_white_24"
-                            android:padding="10dp"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:layout_weight="3"
-                            android:layout_marginTop="5dp"
-                            android:gravity="center"
-                            android:text="Dictionar"/>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/lightgray"
-
-                            android:layout_weight="0.1"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_weight="2.9"
-                            android:text="Cauta cuvinte in dictionar"
-                            android:textSize="12sp"
-
-                            android:textColor="@android:color/darker_gray"/>
-
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:onClick="openStiatiCa"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1">
-
-                    <LinearLayout
+                        android:text="Play"/>
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
+                        android:layout_height="1dp"
+                        android:background="@color/lightgray"
+
+                        android:layout_weight="0.1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:padding="10dp"
-                        android:weightSum="10">
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                        android:layout_weight="2.9"
+                        android:text="Testează-ți cunoștințele"
+                        android:textSize="12sp"
 
-                            android:background="@drawable/pickcircle"
-                            android:src="@mipmap/baseline_whatshot_white_24"
-                            android:padding="10dp"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:layout_weight="3"
-                            android:layout_marginTop="5dp"
-                            android:gravity="center"
-                            android:text="Stiati ca?"/>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/lightgray"
+                        android:textColor="@android:color/darker_gray"/>
 
-                            android:layout_weight="0.1"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_weight="2.9"
-                            android:text="Afla ceva nou"
-                            android:textSize="12sp"
-
-                            android:textColor="@android:color/darker_gray"/>
-
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:clipToPadding="false"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:weightSum="2">
-
-                <android.support.v7.widget.CardView
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:onClick="openLideri"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:weightSum="10">
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-
-                            android:background="@drawable/greencircle"
-                            android:src="@mipmap/baseline_people_white_36"
-                            android:padding="10dp"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:layout_weight="3"
-                            android:layout_marginTop="5dp"
-                            android:gravity="center"
-                            android:text="Lideri"/>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/lightgray"
-
-                            android:layout_weight="0.1"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_weight="2.9"
-                            android:text="Vezi cine sunt liderii"
-                            android:textSize="12sp"
-
-                            android:textColor="@android:color/darker_gray"/>
-
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:id="@+id/bankcardId"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:onClick="openSpecialist">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:weightSum="10">
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-
-                            android:background="@drawable/purplecircle"
-                            android:src="@mipmap/baseline_question_answer_white_24"
-                            android:padding="10dp"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:layout_weight="3"
-                            android:layout_marginTop="5dp"
-                            android:gravity="center"
-                            android:text="Intreaba"/>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/lightgray"
-
-                            android:layout_weight="0.1"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_weight="2.9"
-                            android:text="Intreaba un specialist"
-                            android:textSize="12sp"
-                            android:textColor="@android:color/darker_gray"/>
-
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-            </LinearLayout>
-
-
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
 
         </LinearLayout>
+
+        <LinearLayout
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="2">
+
+            <android.support.v7.widget.CardView
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="openDictionar"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:weightSum="10">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+
+                        android:background="@drawable/bluecircle"
+                        android:src="@mipmap/baseline_book_white_24"
+                        android:padding="10dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:layout_weight="3"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="Dicționar"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/lightgray"
+
+                        android:layout_weight="0.1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_weight="2.9"
+                        android:text="Caută cuvinte in dicționar"
+                        android:textSize="12sp"
+
+                        android:textColor="@android:color/darker_gray"/>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="openStiatiCa"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:weightSum="10">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+
+                        android:background="@drawable/pickcircle"
+                        android:src="@mipmap/baseline_whatshot_white_24"
+                        android:padding="10dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:layout_weight="3"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="Știați că?"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/lightgray"
+
+                        android:layout_weight="0.1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_weight="2.9"
+                        android:text="Află ceva nou"
+                        android:textSize="12sp"
+
+                        android:textColor="@android:color/darker_gray"/>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="2">
+
+            <android.support.v7.widget.CardView
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="openLideri"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:weightSum="10">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+
+                        android:background="@drawable/greencircle"
+                        android:src="@mipmap/baseline_people_white_36"
+                        android:padding="10dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:layout_weight="3"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="Lideri"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/lightgray"
+
+                        android:layout_weight="0.1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_weight="2.9"
+                        android:text="Vezi cine sunt liderii"
+                        android:textSize="12sp"
+
+                        android:textColor="@android:color/darker_gray"/>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:id="@+id/bankcardId"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:onClick="openSpecialist">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:weightSum="10">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+
+                        android:background="@drawable/purplecircle"
+                        android:src="@mipmap/baseline_question_answer_white_24"
+                        android:padding="10dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:layout_weight="3"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="Intreabă"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/lightgray"
+
+                        android:layout_weight="0.1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_weight="2.9"
+                        android:text="Intreabă un specialist"
+                        android:textSize="12sp"
+                        android:textColor="@android:color/darker_gray"/>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/navigation_view_list"
