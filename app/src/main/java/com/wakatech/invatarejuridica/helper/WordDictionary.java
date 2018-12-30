@@ -26,10 +26,10 @@ public class WordDictionary {
         map.put("Alienabil"," care se poate înstrăina (prin vânzare, cesiune etc.)");
         map.put("Inviolabil"," care nu poate fi încălcat.");
         map.put("Separația puterilor în stat"," principiu fundamental al democrației, potrivit căruia în stat există trei puteri (legiuitoare, executivă și judecătorească), exercitate de organe diferite, având o anumită interdependență și dreptul de control reciproc.");
-        map.put("Legiuitor, - oare"," (instituții ale statului, putere legislativă) care are împuternicirea de a elabora și de a adopta legi.");
-        map.put("Executiv, -ă "," (putere executivă) care are sarcina de a pune în aplicare legile și dispozițiile organelor superioare.");
-        map.put("Judecătoresc, -ească "," (putere judecătorească) care supraveghează aplicarea legilor.");
-        map.put("Regulă "," normă, lege pe baza căreia are loc un proces, se desfășoară o activitate sau se produce un fenomen; precept.");
+        map.put("Legiuitoare"," (instituții ale statului, putere legislativă) care are împuternicirea de a elabora și de a adopta legi.");
+        map.put("Executivă"," (putere executivă) care are sarcina de a pune în aplicare legile și dispozițiile organelor superioare.");
+        map.put("Judecătorească"," (putere judecătorească) care supraveghează aplicarea legilor.");
+        map.put("Regulă"," normă, lege pe baza căreia are loc un proces, se desfășoară o activitate sau se produce un fenomen; precept.");
         map.put("Constituție"," lege fundamentală a unui stat, învestită cu o forță juridică superioară celorlalte legi, prin care sunt fixate modalitățile de încredințare și de exercitare a puterii, drepturile și îndatoririle cetățenilor, constituirea și funcționarea organelor centrale și locale de stat, raporturile dintre ele sau raporturile acestora cu cetățenii etc");
         map.put("Public"," care aparține unei colectivități umane sau provine de la o asemenea colectivitate; care privește pe toți, la care participă toți.");
         map.put("Privat"," care aparține unei persoane ca individ izolat; care este al unei singure persoane; particular; personal; individual.");
@@ -79,9 +79,9 @@ public class WordDictionary {
         map.put("Abuz"," încălcare a legalității; faptă ilegală.");
         map.put("Vinovăție"," faptul de a fi vinovat; faptă comisă de cel vinovat; starea celui vinovat; culpabilitate, vină.");
         map.put("Culpă"," (Jur) încălcare intenționată (sau nu) a unei obligațiuni contractuale sau a unei prescripții legale; greșeală; vinovăție.");
-        map.put("Infractor, ~oare"," persoană care a comis o infracțiune.");
-        map.put("Inculpat, ~ă "," (Jur) (persoană) acuzată de o culpă; (persoană) trimisă înaintea unei instanțe judecătorești pentru săvârșirea unui delict; acuzat, învinuit.");
-        map.put("Suspect, -ă "," care este bănuit, care dă de bănuit; care inspiră neîncredere, de care trebuie să te ferești; dubios, îndoielnic.");
+        map.put("Infractor"," persoană care a comis o infracțiune.");
+        map.put("Inculpat"," (Jur) (persoană) acuzată de o culpă; (persoană) trimisă înaintea unei instanțe judecătorești pentru săvârșirea unui delict; acuzat, învinuit.");
+        map.put("Suspect"," care este bănuit, care dă de bănuit; care inspiră neîncredere, de care trebuie să te ferești; dubios, îndoielnic.");
         map.put("Cauze justificative"," imprejurari care inlatura trasaturile esentiale ale infractiunii – caracterul nejustificat. Cauzele justificative sunt: legitima apărare, starea de necesitate, exercitarea unui drept sau indeplinirea unei obligatii, consimtamantul persoanei vatamate");
         map.put("Neimputabilitate"," situație în care se găsește o persoană căreia i se atribuie săvârșirea cu intenție a unei fapte pedepsite de legea penală.");
         map.put("Cauze de neimputabilitate"," care inlatura imputabilitatea. Cauzele de neimputablitate sunt cauze personale, care nu se rasfrang asupra participantilor, de ele urmand a beneficia doar persoana care a actionat sub imperiul lor: constrangerea fizica, constrangerea morala,  excesul neimputabil, minoritatea faptuitorului, iresponsabilitatea, intoxicatia , eroarea.");
@@ -112,6 +112,10 @@ public class WordDictionary {
         map.put("Dispozitie de lege"," prevedere obligatorie cuprinsă într-un act normativ; măsură sau hotărâre luată de un organ ierarhic superior și obligatorie pentru organul în subordine.");
         map.put("Reclamație"," faptul de a reclama; petiție, plângere, prin care se cere ceva sau se aduc anumite învinuiri cuiva. ♦ (Jur.) Sesizare adresată unui organ al administrației de stat în legătură cu încălcarea unui drept al petiționarului, sau unui organ de urmărire penală în legătură cu săvârșirea unei infracțiuni.");
         map.put("Petiție"," cerere scrisă, adresată de către un cetățean sau un grup de persoane unei autorități privind drepturi, interese personale sau publice.");
+        map.put("Făptuitor","făptaș, persoană care săvârșește o acțiune");
+        map.put("Major","(despre oameni) care a împlinit vârsta legală pentru a putea beneficia prin lege de drepturi civile și politice depline. ");
+        map.put("Răspundere penală ","persoana care a săvârșit o infracțiune este obligată să răspundă pentru aceasta în fața organelor judiciare, să suporte sancțiunile prevăzute de lege și să execute pedeapsa aplicată.");
+        map.put("Măsuri de siguranţă ","sancţiuni de drept penal cu caracter exclusiv preventiv care au ca scop înlăturarea unei stări care a generat comiterea unei infracţiuni şi preîntâmpinarea repetării săvârşirii faptelor prevăzute de legea penală. ");
         return map;
     }
 
