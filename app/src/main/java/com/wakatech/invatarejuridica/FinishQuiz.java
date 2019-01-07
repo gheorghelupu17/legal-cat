@@ -86,7 +86,7 @@ public class FinishQuiz extends AppCompatActivity {
         editor.putString("intrebari", intrebari);
         editor.apply();
 
-        if (scoreLevelCompleted<8 || levelCompleted==16) {
+        if (scoreLevelCompleted<8 || levelCompleted==18) {
             nextNivel.setClickable(false);
             nextNivel.setVisibility(View.INVISIBLE);
         }

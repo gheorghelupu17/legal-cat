@@ -192,7 +192,7 @@ public class PlayLevel extends AppCompatActivity {
         i.putExtra("score",10);
         i.putExtra("level_number",levelNumber);
         startActivity(i);
-        finish();*/
+        finish(); */
 
         Intrebare deVerificat = listaIntrebari.get(indexQuestion);
         if (userSelect1 != deVerificat.isCorect1())
@@ -313,13 +313,15 @@ public class PlayLevel extends AppCompatActivity {
             positionFound = raspuns1Text.toLowerCase().indexOf(key.toLowerCase());
             if (positionFound!=-1) {
                 int positionEnd = raspuns1Text.toLowerCase().indexOf(' ',positionFound);
-                if (positionEnd!=-1)
-                    if (positionFound==0)
-                        spannableStringRaspuns1.setSpan(clickableSpan,positionFound,positionEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    else
-                    if(raspuns1Text.charAt(positionFound-1)==' ')
-                        spannableStringRaspuns1.setSpan(clickableSpan,positionFound,positionEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                if (positionEnd!=-1) {
+                    if (positionFound == 0)
+                        spannableStringRaspuns1.setSpan(clickableSpan, positionFound, positionEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    else if (raspuns1Text.charAt(positionFound - 1) == ' ')
+                        spannableStringRaspuns1.setSpan(clickableSpan, positionFound, positionEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                }
+                //else spannableStringRaspuns1.setSpan(clickableSpan,positionFound,positionFound+key.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             }
+
 
 
             positionFound = raspuns2Text.toLowerCase().indexOf(key.toLowerCase());

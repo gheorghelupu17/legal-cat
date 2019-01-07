@@ -26,7 +26,7 @@ public class Stiatica extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.custom_toolbar_stiatica);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Stiati ca?");
+        getSupportActionBar().setTitle("Stiați că?");
 
         background = findViewById(R.id.relativeLayout);
         factTextView = findViewById(R.id.factTextView);

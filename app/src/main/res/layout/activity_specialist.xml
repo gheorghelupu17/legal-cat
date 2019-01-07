@@ -23,7 +23,7 @@
         android:layout_height="0dp"
         android:layout_weight="3"
         android:gravity="start"
-        android:hint="Pune o intrebare"
+        android:hint="Pune o întrebare"
         android:textColorLink="@color/colorPrimary" />
 
     <Button
@@ -32,7 +32,7 @@
         android:layout_height="0dp"
         android:layout_weight="0.5"
         android:background="@drawable/buttonstyle"
-        android:text="Intreaba"
+        android:text="Intreabă"
         android:textColor="#FFF" />
 
 </LinearLayout>

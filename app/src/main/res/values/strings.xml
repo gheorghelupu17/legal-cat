@@ -11,12 +11,12 @@
         <item>Civil și Familie</item>
         <item>Drepturile tânărului</item>
         <item>Drepturile copilului</item>
-        <item>Corupția</item>
-        <item>Administrația</item>
+        <item>Corupție</item>
+        <item>Administrație</item>
         <item>Rutier</item>
         <item>Financiar</item>
-        <item>Drept penal</item>
-        <item>Drept notarial</item>
+        <item>Penal</item>
+        <item>Notarial</item>
     </string-array>
 
     <string-array name="judete">

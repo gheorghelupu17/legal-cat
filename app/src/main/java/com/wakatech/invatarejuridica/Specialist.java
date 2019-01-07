@@ -36,7 +36,7 @@ public class Specialist extends AppCompatActivity {
         setContentView(R.layout.activity_specialist);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Intreaba un specialist");
+        actionBar.setTitle("Intreabă un specialist");
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         spinner = findViewById(R.id.category_select);

@@ -28,7 +28,7 @@ public class Dictionar extends AppCompatActivity {
         setContentView(R.layout.activity_dictionar);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Dictionar");
+        actionBar.setTitle("Dicționar");
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         listOfWords = findViewById(R.id.list_of_dictionary_words);
