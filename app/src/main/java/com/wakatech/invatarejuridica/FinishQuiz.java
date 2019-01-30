@@ -49,7 +49,7 @@ public class FinishQuiz extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.custom_toolbar_finishquiz);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("You completed level "+levelCompleted);
+        getSupportActionBar().setTitle("Nivelul "+levelCompleted);
 
         circleScore = findViewById(R.id.progress_circle);
         scoreText = findViewById(R.id.score_tv_finish_quiz);
@@ -92,7 +92,7 @@ public class FinishQuiz extends AppCompatActivity {
         }
 
         if (scoreLevelCompleted>=8)
-            textFelicitari.setText("Felicitari ai trecut nivelul "+levelCompleted+" !");
+            textFelicitari.setText("Felicitări, ai trecut nivelul "+levelCompleted+" !");
         else
             textFelicitari.setText("Nu ai trecut nivelul "+levelCompleted+" :(");
         scoreText.setText(scoreLevelCompleted+"/10");

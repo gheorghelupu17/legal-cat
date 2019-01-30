@@ -56,7 +56,7 @@
                         android:layout_weight="3"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="Joacă"/>
+                        android:text="Joacă!"/>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -69,7 +69,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:layout_weight="2.9"
-                        android:text="Testează-ți cunoștințele"
+                        android:text="Intră și arată-ne ce știi!"
                         android:textSize="12sp"
 
                         android:textColor="@android:color/darker_gray"/>
@@ -133,7 +133,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:layout_weight="2.9"
-                        android:text="Caută cuvinte in dicționar"
+                        android:text="Aici îți explicăm termeni juridici"
                         android:textSize="12sp"
 
                         android:textColor="@android:color/darker_gray"/>
@@ -173,7 +173,7 @@
                         android:layout_weight="3"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="Știați că?"/>
+                        android:text="Știai că ...?"/>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -186,7 +186,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:layout_weight="2.9"
-                        android:text="Află ceva nou"
+                        android:text="În lume există multe legi ciudate. Intră să afli."
                         android:textSize="12sp"
 
                         android:textColor="@android:color/darker_gray"/>
@@ -250,7 +250,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:layout_weight="2.9"
-                        android:text="Vezi cine sunt liderii"
+                        android:text="Ești cel mai bun în joc? Intră să vezi."
                         android:textSize="12sp"
 
                         android:textColor="@android:color/darker_gray"/>
@@ -291,7 +291,7 @@
                         android:layout_weight="3"
                         android:layout_marginTop="5dp"
                         android:gravity="center"
-                        android:text="Intreabă"/>
+                        android:text="Întreabă"/>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -304,7 +304,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:layout_weight="2.9"
-                        android:text="Intreabă un specialist"
+                        android:text="Ești curios să afli mai multe? Ia legătura cu noi."
                         android:textSize="12sp"
                         android:textColor="@android:color/darker_gray"/>
 

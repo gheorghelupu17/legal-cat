@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.wakatech.invatarejuridica.helper.RandomGenerator;
 
+import static android.text.Layout.JUSTIFICATION_MODE_INTER_WORD;
+
 public class Stiatica extends AppCompatActivity {
 
     private ConstraintLayout background;
@@ -26,7 +28,7 @@ public class Stiatica extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.custom_toolbar_stiatica);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Stiați că?");
+        getSupportActionBar().setTitle("Știai că?");
 
         background = findViewById(R.id.relativeLayout);
         factTextView = findViewById(R.id.factTextView);

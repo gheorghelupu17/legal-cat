@@ -31,6 +31,8 @@ public class Login extends AppCompatActivity {
     private Button logInButton;
     private Context context;
     private TextView web2Change;
+    private TextView dontHave;
+    private TextView signUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,8 @@ public class Login extends AppCompatActivity {
         passwordText = findViewById(R.id.textPassword);
         logInButton = findViewById(R.id.buttonLogIn);
         web2Change = findViewById(R.id.web2change);
+        dontHave = findViewById(R.id.sign_up_tv);
+        signUp = findViewById(R.id.sign_up_tv_button);
 
         context = this;
 
@@ -61,6 +65,7 @@ public class Login extends AppCompatActivity {
         final String password = data.getString("password",null);
         if (username!=null && password != null)
         {
+            makeEverythingInvisible();
             Retrofit retrofit = new Retrofit.Builder().
                     baseUrl("https://legal-cat.ro/").
                     addConverterFactory(GsonConverterFactory.create())
@@ -74,8 +79,11 @@ public class Login extends AppCompatActivity {
                     Auth auth = response.body();
                     if (auth.msg)
                         grantAcces(username, password, auth.token);
-                    else
-                        Toast.makeText(Login.this,"User nu a fost gasit",Toast.LENGTH_LONG).show();
+                    else {
+                        Toast.makeText(Login.this,"User-ul nu a fost gasit",Toast.LENGTH_LONG).show();
+                        makeEverythingVisible();
+                    }
+
                 }
                 @Override
                 public void onFailure(Call<Auth> call, Throwable t) {
@@ -84,7 +92,24 @@ public class Login extends AppCompatActivity {
             });
         }
 
+    }
 
+    private void makeEverythingVisible() {
+        usernameText.setVisibility(View.VISIBLE);
+        passwordText.setVisibility(View.VISIBLE);
+        logInButton.setVisibility(View.VISIBLE);
+        web2Change.setVisibility(View.VISIBLE);
+        dontHave.setVisibility(View.VISIBLE);
+        signUp.setVisibility(View.VISIBLE);
+    }
+
+    private void makeEverythingInvisible() {
+        usernameText.setVisibility(View.INVISIBLE);
+        passwordText.setVisibility(View.INVISIBLE);
+        logInButton.setVisibility(View.INVISIBLE);
+        web2Change.setVisibility(View.INVISIBLE);
+        dontHave.setVisibility(View.INVISIBLE);
+        signUp.setVisibility(View.INVISIBLE);
     }
 
     public void checkInfo(View view) {
@@ -94,6 +119,7 @@ public class Login extends AppCompatActivity {
         passwordText.setText(null);
         if (!user.equals("")  && !pass.equals(""))
         {
+            makeEverythingInvisible();
             Retrofit retrofit = new Retrofit.Builder().
                     baseUrl("https://legal-cat.wakatech.ro/").
                     addConverterFactory(GsonConverterFactory.create())
@@ -108,8 +134,10 @@ public class Login extends AppCompatActivity {
                     //assert (response.toString().equals(""));
                     if (response.body().msg)
                         grantAcces(user, pass, response.body().token);
-                    else
-                        Toast.makeText(Login.this,"Date incorecte de autentificare",Toast.LENGTH_LONG).show();
+                    else {
+                        Toast.makeText(Login.this, "Date incorecte de autentificare", Toast.LENGTH_LONG).show();
+                        makeEverythingVisible();
+                    }
                 }
 
                 @Override

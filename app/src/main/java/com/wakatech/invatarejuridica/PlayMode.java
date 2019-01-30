@@ -52,7 +52,7 @@ public class PlayMode extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar_playmode);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Select level");
+        getSupportActionBar().setTitle("Selectează nivel");
 
         rootLinearLayout = findViewById(R.id.root_linear_layout);
         rootScrollView = findViewById(R.id.scrolPlayMode);

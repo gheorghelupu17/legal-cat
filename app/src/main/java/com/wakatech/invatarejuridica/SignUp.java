@@ -8,12 +8,15 @@ import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.wakatech.invatarejuridica.helper.Auth;
 import com.wakatech.invatarejuridica.helper.UserDetails;
 import com.wakatech.invatarejuridica.helper.UserSignUp;
@@ -37,6 +40,7 @@ public class SignUp extends AppCompatActivity {
     private EditText confirmPasswordEt;
     private CheckBox checkAccept;
     private TextView textAccept;
+    private Button signUpButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +57,7 @@ public class SignUp extends AppCompatActivity {
         confirmPasswordEt   = findViewById(R.id.confirmare_parola_et);
         checkAccept         = findViewById(R.id.checkboxAccept);
         textAccept          = findViewById(R.id.textAccept);
+        signUpButton        = findViewById(R.id.buttonSignUp);
 
         textAccept.setMovementMethod(LinkMovementMethod.getInstance());
 
@@ -75,6 +80,10 @@ public class SignUp extends AppCompatActivity {
                 addConverterFactory(GsonConverterFactory.create())
                 .build();
 
+        YoYo.with(Techniques.FlipInX).duration(4000).playOn(signUpButton);
+        signUpButton.setClickable(false);
+
+
         LoginClient loginClient = retrofit.create(LoginClient.class);
         Call<Auth> call = loginClient.signUpUser(
                 userData.email, userData.password,
@@ -88,8 +97,10 @@ public class SignUp extends AppCompatActivity {
                 //assert (response.toString().equals(""));
                 if (response.body().msg)
                     openApp();
-                else
-                    Toast.makeText(SignUp.this,"User-ul exista deja!!",Toast.LENGTH_LONG).show();
+                else {
+                    Toast.makeText(SignUp.this, "User-ul exista deja!!", Toast.LENGTH_LONG).show();
+                    signUpButton.setClickable(true);
+                }
             }
 
             @Override

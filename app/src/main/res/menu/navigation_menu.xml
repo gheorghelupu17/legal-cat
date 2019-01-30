@@ -22,7 +22,7 @@
 
     <item
         android:id="@+id/logout"
-        android:title="Exit"
+        android:title="Deconectare"
         android:icon="@mipmap/baseline_exit_to_app_black_18dp"
         />
 

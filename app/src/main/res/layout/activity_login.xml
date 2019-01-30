@@ -30,7 +30,7 @@
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
         android:background="@drawable/login_round_button"
-        android:hint="username"
+        android:hint="email"
         android:paddingStart="15dp"
         app:layout_constraintBottom_toTopOf="@+id/textPassword"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +45,7 @@
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
         android:background="@drawable/login_round_button"
-        android:hint="password"
+        android:hint="parolă"
         android:inputType="textPassword"
         android:paddingStart="15dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonLogIn"
@@ -61,7 +61,7 @@
         android:layout_marginStart="50dp"
         android:background="@drawable/buttonstyle"
         android:onClick="checkInfo"
-        android:text="Sign In"
+        android:text="Autentificare"
         android:textAllCaps="false"
         android:textColor="#FFF"
         app:layout_constraintBottom_toBottomOf="@id/sign_up_baseline_linear_layout"
@@ -83,18 +83,18 @@
             android:id="@+id/sign_up_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Don`t have an account?  "
+            android:text="Nu ai un cont? "
             android:textSize="18sp"
              />
+
         <TextView
             android:id="@+id/sign_up_tv_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign up"
-            android:textColor="#FFF"
-            android:textSize="18sp"
             android:onClick="startSignUp"
-             />
+            android:text="Înregistrează-te!"
+            android:textColor="#FFF"
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -106,7 +106,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:onClick="startSignUp"
-        android:text="Change password"
+        android:text="Schimbă parola"
         android:textColor="#FFF"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

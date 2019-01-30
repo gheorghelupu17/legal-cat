@@ -15,17 +15,17 @@
         layout="@layout/custom_toolbar"
         android:theme = "@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         />
-
+    textView.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
     <android.support.v4.widget.NestedScrollView
         android:layout_width="wrap_content"
         android:layout_height="400dp"
         android:layout_alignParentStart="true"
-        android:layout_gravity="center"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="15dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:orientation="vertical"
-        android:padding="20dp"
+        android:padding="10dp"
+        android:paddingTop="250dp"
         app:layout_constraintBottom_toTopOf="@+id/showFactButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -34,8 +34,9 @@
             android:id="@+id/factTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_gravity="center_vertical|right"
             android:gravity="center_vertical"
             android:text="Ants stretch when they wake up in the morning"
             android:textColor="#ffffffff"
@@ -53,7 +54,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@android:color/background_light"
-        android:text="Next"
+        android:text="Află mai mult!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

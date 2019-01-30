@@ -266,7 +266,7 @@ public class PlayLevel extends AppCompatActivity {
         raspuns1.setText(listaIntrebari.get(indexQuestion).getRaspuns1());
         raspuns2.setText(listaIntrebari.get(indexQuestion).getRaspuns2());
         raspuns3.setText(listaIntrebari.get(indexQuestion).getRaspuns3());
-        buttonAnswer.setText("Raspunde");
+        buttonAnswer.setText("Răspunde");
         scoreDisplay.setText(curentScore+"/10");
         buttonAnswer.setEnabled(false);
         setLinks();

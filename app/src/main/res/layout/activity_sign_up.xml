@@ -217,12 +217,12 @@
                     android:textColor="#FFF"
                     android:text="@string/terms"
                     />
-
             </LinearLayout>
 
 
 
             <Button
+                android:id="@+id/buttonSignUp"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_margin="40dp"

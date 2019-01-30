@@ -4,7 +4,7 @@
     <string name="close">close</string>
     <string name="title_activity_stiatica">stiatica</string>
     <string name="terms"><a href="http://legal-cat.ro/termene">Sunt de acord cu termenele si condiitile gasite la linkul https://legal-cat.ro/termene</a></string>
-    <string name="despre">Proiect civic-juridic realizat de Asociația pentru Dialog în Justiție, cofinanțat de Primăria Municipiului Iași prin programul anual de finanțare nerambursabilă pentru organizații neguvernamentale. Informațiile prezentate aparțin specialiștilor implicați în elaborarea testelor de educație civică și juridică.</string>
+    <string name="despre">Proiect civic-juridic realizat de Asociația pentru Dialog în Justiție, cofinanțat de Primăria Municipiului Iași prin programul anual de finanțare nerambursabilă pentru organizații neguvernamentale. \n Informațiile prezentate aparțin specialiștilor implicați în elaborarea testelor de educație civică și juridică.</string>
 
     <string-array name="categories">
         <item>General</item>

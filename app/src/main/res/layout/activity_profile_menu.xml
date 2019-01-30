@@ -147,16 +147,16 @@
         </LinearLayout>
 
 
-    <Button
-        android:id="@+id/backButton"
-        android:textColor="#fff"
-        android:background="@drawable/buttonstyle"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:text="Inapoi"
-        android:onClick="backButton"/>
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/buttonstyle"
+            android:onClick="backButton"
+            android:text="Înapoi"
+            android:textColor="#fff" />
 
 </LinearLayout>
 
